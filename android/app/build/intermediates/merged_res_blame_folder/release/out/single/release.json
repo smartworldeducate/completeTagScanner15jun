@@ -1,0 +1,478 @@
+[
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_splash.jpg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/splash.jpg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-mdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_umar.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/umar.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_checkicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/checkicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_chatgpt.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/chatgpt.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_mainbg.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/mainbg.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_signupuser.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/signupuser.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_dropdowngrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/dropdowngrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_assesment.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/assesment.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_closesilver.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/closesilver.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_vector.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/vector.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_challangrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/challangrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xxxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_delete.jpeg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/delete.jpeg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_card.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/card.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_home.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/home.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_inprocess.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/inprocess.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_email.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/email.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_idcard.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/idcard.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_attendence.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/attendence.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xxxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xxxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_eye.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/eye.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_circleselect.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/circleselect.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_listicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/listicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_radiobutton.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/radiobutton.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_forwardarrow.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/forwardarrow.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_father.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/father.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_industry.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/industry.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_menublue.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/menublue.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_cellphone.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/cellphone.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_wajiha.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/wajiha.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_studentblue.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/studentblue.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_zeshan.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/zeshan.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_country.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/country.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_ractangle.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/ractangle.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_password.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/password.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_attendancegrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/attendancegrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_contactblue.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/contactblue.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_ticklightgreen.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/ticklightgreen.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_userselected.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/userselected.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_rn_edit_text_material.xml.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_crosscircle.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/crosscircle.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backiconmask.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/raw_node_modules_galioframework_src_fonts_galio.ttf.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/raw/node_modules_galioframework_src_fonts_galio.ttf"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_closeimg.jpeg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/closeimg.jpeg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_phone.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/phone.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_phonegrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/phonegrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_username.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/username.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_userimg.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/userimg.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_ayaz.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/ayaz.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_logo.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/logo.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_arrowdown.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/arrowdown.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_mainuser.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/mainuser.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_student.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/student.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_notificationsgrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/notificationsgrey.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_camera.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/camera.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_emailupdate.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/emailupdate.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_mother.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/mother.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-hdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_mainsplash.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/mainsplash.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_checked.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/checked.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_rightarrow.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/rightarrow.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_empty.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/empty.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_support.jpg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/support.jpg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_group.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/group.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_uncheck.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/uncheck.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-mdpi_node_modules_reactnativeelementdropdown_src_assets_down.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-mdpi/node_modules_reactnativeelementdropdown_src_assets_down.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_close.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/close.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_backarrow.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/backarrow.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_challan.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/challan.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_agegroup.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/agegroup.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-xxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_logoutgrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/logoutgrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_loginbglatest.jpg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/loginbglatest.jpg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_arrowup.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/arrowup.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-hdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_tickgreen.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/tickgreen.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_forward.jpeg.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/forward.jpeg"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_menu.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/menu.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable-mdpi_node_modules_reactnativeelementdropdown_src_assets_close.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-react-29:/drawable-mdpi/node_modules_reactnativeelementdropdown_src_assets_close.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_notificationblue.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/notificationblue.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_listgpt.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/listgpt.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_qasim.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/qasim.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_edit.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/edit.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_downarrow.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/downarrow.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-34:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.tagscanner.app-main-35:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_contactgrey.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/contactgrey.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_addlocation.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/addlocation.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_smy.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/smy.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_parentsprofile.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/parentsprofile.png"
+    },
+    {
+        "merged": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-merged_res-34:/drawable_tikdone.png.flat",
+        "source": "/home/linux/.gradle/daemon/7.5.1/com.tagscanner.app-main-35:/drawable/tikdone.png"
+    }
+]
