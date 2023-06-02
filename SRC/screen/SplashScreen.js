@@ -1,5 +1,6 @@
 import {View, ImageBackground, StatusBar, Text, Image} from 'react-native';
 import React, {useEffect} from 'react';
+import { StackActions} from '@react-navigation/native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -8,7 +9,7 @@ import {
 const SplashScreen = props => {
   useEffect(() => {
     setTimeout(async () => {
-      props.navigation.navigate('Drawer');
+      props.navigation.dispatch(StackActions.replace('Drawer'))
     }, 3000);
   }, []);
 

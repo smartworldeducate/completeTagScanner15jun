@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">249159142983-3r1307q40tb9de7qctsm4ckk244etg9h.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">249159142983</string>
+    <string name="google_api_key" translatable="false">AIzaSyBrFejd3yGhakwAt6l-SYVMKSR5d8-kEPo</string>
+    <string name="google_app_id" translatable="false">1:249159142983:android:1f6b318999d73c1bdb6b62</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBrFejd3yGhakwAt6l-SYVMKSR5d8-kEPo</string>
+    <string name="google_storage_bucket" translatable="false">tagscanner-f3186.appspot.com</string>
+    <string name="project_id" translatable="false">tagscanner-f3186</string>
+</resources>

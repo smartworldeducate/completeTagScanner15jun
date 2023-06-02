@@ -10,8 +10,8 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />} screenOptions={{drawerPosition:"right"}}>
       <Drawer.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Login"
+        component={LoginScreen}
         options={{headerShown: false}}
       />
       <Drawer.Screen
@@ -20,8 +20,8 @@ const DrawerNavigator = () => {
         options={{headerShown: false}}
       />
        <Drawer.Screen
-        name="Login"
-        component={LoginScreen}
+        name="Home"
+        component={HomeScreen}
         options={{headerShown: false}}
       />
        <Drawer.Screen

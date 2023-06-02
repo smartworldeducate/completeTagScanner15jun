@@ -9,6 +9,8 @@ import {
 } from 'react-native-responsive-screen';
 
 const TagScanner = (props) => {
+  const id=props.route.params;
+  console.log("detail screen",id)
   return (
     <>
       <StatusBar backgroundColor={'#041677'} />

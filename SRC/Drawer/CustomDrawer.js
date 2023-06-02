@@ -39,9 +39,9 @@ const CustomDrawer = ({navigation}) => {
           }}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-              <Icon name='home' size={35} color='gray'/>
+              <Icon name='home' size={25} color='gray'/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Home</Text>
               </View>
             </View>
@@ -54,9 +54,9 @@ const CustomDrawer = ({navigation}) => {
           }}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Event name='view-dashboard-variant-outline' size={35} color="gray"/>
+                <Event name='view-dashboard-variant-outline' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Dashboard</Text>
               </View>
             </View>
@@ -66,9 +66,9 @@ const CustomDrawer = ({navigation}) => {
           <TouchableOpacity onPress={()=>navigation.navigate("TagcreateScreen")}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Session name='create-outline' size={35} color="gray"/>
+                <Session name='create-outline' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.8)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Create Tag</Text>
               </View>
             </View>
@@ -81,9 +81,9 @@ const CustomDrawer = ({navigation}) => {
           }}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Hand name='clipboard-list' size={35} color="gray"/>
+                <Hand name='clipboard-list' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Tag List</Text>
               </View>
             </View>
@@ -93,9 +93,9 @@ const CustomDrawer = ({navigation}) => {
           <TouchableOpacity >
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Notification name='bookmark' size={35} color="gray"/>
+                <Notification name='bookmark' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Bookmark</Text>
               </View>
             </View>
@@ -103,12 +103,12 @@ const CustomDrawer = ({navigation}) => {
        </View>
         
        <View style={{width:wp(50),height:hp(5),marginTop:wp(5)}}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('Test')}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Contact name='envelope-o' size={35} color="gray"/>
+                <Contact name='envelope-o' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Contact Us</Text>
               </View>
             </View>
@@ -118,9 +118,9 @@ const CustomDrawer = ({navigation}) => {
           <TouchableOpacity >
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Help name='help-circle' size={35} color="gray"/>
+                <Help name='help-circle' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Helps & FAQs</Text>
               </View>
             </View>
@@ -133,9 +133,9 @@ const CustomDrawer = ({navigation}) => {
           }}>
             <View style={{flexDirection:'row',marginLeft:hp(3)}}>
               <View >
-                <Out name='sign-out' size={35} color="gray"/>
+                <Out name='sign-out' size={25} color="gray"/>
               </View>
-              <View style={{marginLeft:hp(2),marginTop:hp(0.7)}}>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
                 <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>Sign Out</Text>
               </View>
             </View>

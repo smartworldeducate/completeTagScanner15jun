@@ -3,7 +3,6 @@ import React from 'react';
 import {Input, Checkbox} from 'galio-framework';
 // import Icon from 'react-native-vector-icons/AntDesign';
 import Left from 'react-native-vector-icons/AntDesign';
-import Moment from 'moment';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

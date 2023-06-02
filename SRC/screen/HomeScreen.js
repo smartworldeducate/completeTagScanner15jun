@@ -1,7 +1,7 @@
-import {View, Text, StatusBar, TouchableOpacity, Image} from 'react-native';
+import {View, Text, StatusBar, TouchableOpacity,ActivityIndicator, Image} from 'react-native';
 import Menu from 'react-native-vector-icons/AntDesign';
-import React from 'react';
-import Sop from 'react-native-vector-icons/Entypo';
+import React, { useEffect, useState } from 'react';
+// import Sop from 'react-native-vector-icons/Entypo';
 import Gpt from 'react-native-vector-icons/FontAwesome5';
 import Saminar from 'react-native-vector-icons/MaterialIcons';
 import Camra from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,22 +10,86 @@ import Filter from 'react-native-vector-icons/Octicons';
 import Search from 'react-native-vector-icons/Feather';
 import Bell from 'react-native-vector-icons/EvilIcons';
 import Drop from 'react-native-vector-icons/FontAwesome5';
-import Glob from 'react-native-vector-icons/Entypo';
-import Film from 'react-native-vector-icons/Feather';
+// import Glob from 'react-native-vector-icons/Entypo';
+// import Film from 'react-native-vector-icons/Feather';
+import { useSelector,useDispatch } from 'react-redux';
+import { getAllTags } from '../features/tags/tagSlice';
+import { getAllCats } from '../features/category/allCatSlice';
+import { filterCats } from '../features/category/singleCatSlice';
+// import Okey from 'react-native-vector-icons/Entypo';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Modal from "react-native-modal";
+
 import {ScrollView} from 'react-native';
 
 const HomeScreen = props => {
+  const dispatch=useDispatch()
+  const [visible, setVisible] = useState(false)
+  const [success,setSuccess]=useState(false)
+  const [animodal, setAnimodal] = useState(false);
+  const [animation,setAnimation]=useState(true)
+ const [tagData,setTagData]=useState([])
+ const [catgory,setCategory]=useState([])
+
+  const handleTags= async()=>{
+    setAnimodal(true)
+    const tagData=await dispatch(getAllTags())
+    if(tagData !== ""){
+     await setTagData(tagData.payload)
+    }
+    setInterval(() => {
+      setAnimodal(false)
+    }, 1000);
+  }
+
+  const getAllCatHandle=async()=>{
+    const catData=await dispatch(getAllCats())
+    if(catData !== ""){
+      await setCategory(catData.payload)
+      //  console.log("tagdata here",data.payload)
+     }
+  }
+
+  const handleFilter=async(category_id)=>{
+    setAnimodal(true)
+       console.log("fsdgfdghfgjgfj",category_id)
+     const flData =await dispatch(filterCats(category_id))
+     if(flData !== ""){
+       setTagData(flData.payload)
+      console.log("filter  here",flData.payload)
+     }
+     setInterval(() => {
+      setAnimodal(false)
+    }, 1000);
+     
+  }
+  // console.log("tagdata here",tagData)
+  useEffect(()=>{
+    handleTags()
+    getAllCatHandle()
+  },[])
+
   return (
     <>
       <StatusBar
         backgroundColor={'#4A43EC'}
         barStyle="Light-content"
-        hidden={false}
       />
+       {animation && (<View >
+        <Modal isVisible={animodal}>
+          <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1) }}>
+
+            <View style={{marginTop:hp(8)}}>
+              <ActivityIndicator animating={animation} size={'large'}/>
+            </View>
+
+          </View>
+        </Modal>
+      </View>)}
       <View
         style={{
           width: wp(100),
@@ -134,7 +198,7 @@ const HomeScreen = props => {
               <View style={{width:wp(6),height:hp(3),borderRadius:hp(50),backgroundColor:'#3D56F0',marginVertical:hp(1),marginLeft:hp(1.5)}}>
            <Filter style={{marginVertical:hp(0.5),marginHorizontal:hp(0.5)}} name="filter" size={15} color="#fff" /> 
            </View>
-            <View style={{width:wp(15)}}><Text
+            <TouchableOpacity onPress={handleTags} style={{width:wp(15)}}><Text
               style={{
                 marginTop: hp(1.3),
                 marginHorizontal: hp(1.4),
@@ -143,14 +207,34 @@ const HomeScreen = props => {
               }}>
               {' '}
               Filter
-            </Text></View>
+            </Text></TouchableOpacity>
            
           </View>
         </View>
        
       </View>
       <ScrollView horizontal={true} style={{ width: wp(100),height:hp(8),paddingLeft:hp(2.5),marginTop:hp(-4)}} showsHorizontalScrollIndicator={false}>
-          <View style={{marginRight:hp(1)}}>
+        {catgory?.map((e,i)=>{
+          const icon=["grid-view","pause-presentation","card-giftcard","flight-land"]
+           const bgcolor=['#46CDFB','#F0635A','#F19561','#29D697','#46CDFB','#F19561','#F19561']
+           if(i==4){
+            i=0
+          }
+          const {category_id,category_name}=e
+          return(<View style={{marginRight:hp(1)}} key={category_id}>
+          <TouchableOpacity onPress={()=>handleFilter(category_id)}>
+            <View style={{height:hp(5),paddingHorizontal:hp(1.5),borderRadius:hp(5),backgroundColor:bgcolor[i],flexDirection:'row'}}>
+              <View style={{marginLeft:hp(1),marginVertical:hp(1.2)}}>
+              <Ball name={icon[i]} mr="sm" color="white" size={20}/>
+              </View>
+              <View style={{marginVertical:hp(1),marginLeft:hp(0.2)}}>
+                <Text style={{color:'white',fontSize:hp(2)}}>{category_name}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>)
+        })}
+          {/* <View style={{marginRight:hp(1)}}>
             <TouchableOpacity>
               <View style={{width:wp(20),height:hp(5),borderRadius:hp(5),backgroundColor:'#46CDFB',flexDirection:'row'}}>
                 <View style={{marginLeft:hp(2),marginVertical:hp(1.5)}}>
@@ -209,482 +293,180 @@ const HomeScreen = props => {
                 </View>
               </View>
             </TouchableOpacity>
-          </View>
+          </View> */}
           
         </ScrollView>
-      <ScrollView style={{marginTop: hp(3)}}>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('DetailScreen')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#58D68D ',
-              borderRadius: hp(2),
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-             <Image style={{width:wp(12),height:hp(6),borderRadius:hp(1)}} source={{uri:'listgpt'}} resizeMode='cover'/>
 
+       {tagData.length >= 6 ? (<ScrollView style={{marginTop: hp(3)}}>
+        
+        {tagData?.map((e,i)=>{
+          // console.log(e.tag_logo)
+          const {tag_id,tag_desc,tag_logo,setup_name}=e
+          return(<TouchableOpacity onPress={()=>props.navigation.navigate('DetailScreen',e)} key={i}>
+          <View
+            style={{
+              width: wp(90),
+              height: hp(7.9),
+              flexDirection: 'row',
+              marginHorizontal: hp(2.5),
+              marginBottom: hp(2),
+              backgroundColor: 'white',
+              borderRadius: hp(1.3),
+            }}>
+            <View
+              style={{
+                width: wp(12),
+                height: hp(6),
+                backgroundColor: '#58D68D ',
+                borderRadius: hp(2),
+                marginVertical: hp(1),
+                marginHorizontal: hp(1.5),
+                marginRight: hp(3),
+              }}>
+               <Image style={{width:wp(12),height:hp(6),borderRadius:hp(1)}} source={{uri:tag_logo}} resizeMode='cover'/>
+              
+            </View>
+            <View>
+              <View>
+                <Text
+                  style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
+                  {tag_desc}
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row',marginTop:hp(0)}}>
+                <View style={{marginRight: hp(1)}}>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
+                    TIME {setup_name} <Text style={{color:'#5669FF'}}>00:00 |</Text>
+                  </Text>
+                </View>
+                <View>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
+                </View>
+              </View>
+            </View>
+            <View style={{marginVertical: hp(2.5),marginHorizontal:hp(3)}}>
             
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                CHAT GPT Intoduction
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
+              <Image style={{width:wp(6),height:hp(3)}} source={{uri:setup_name =='in' ? 'yelo' : 'listicon'}} resizeMode='cover'/>
             </View>
           </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#58D68D ',
-              borderRadius: hp(2),
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-             <Image style={{width:wp(12),height:hp(6),borderRadius:hp(1)}} source={{uri:'listgpt'}} resizeMode='cover'/>
-
-            
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                MyStore Attendance
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#46CDFB',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Gpt
-              name="plane-arrival"
-              color="white"
-              size={35}
-              style={{marginTop: hp(0.5), marginLeft: hp(0.5)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                MyStore Attendance
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#76D7C4',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Film
-              name="film"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                Movie Show
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#76D7C4',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Glob
-              name="globe"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                WWW Seminar
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#F0635A',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Glob
-              name="globe"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                Movie Show
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#F0635A',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Glob
-              name="globe"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                Movie Show
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#F0635A',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Glob
-              name="globe"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                Movie Show
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Home2')}>
-        <View
-          style={{
-            width: wp(90),
-            height: hp(7.9),
-            flexDirection: 'row',
-            marginHorizontal: hp(2.5),
-            marginBottom: hp(2),
-            backgroundColor: 'white',
-            borderRadius: hp(1.6),
-          }}>
-          <View
-            style={{
-              width: wp(12),
-              height: hp(6),
-              backgroundColor: '#F0635A',
-              borderRadius: hp(1.2),
-              
-              marginVertical: hp(1),
-              marginHorizontal: hp(1.5),
-              marginRight: hp(3),
-            }}>
-            <Glob
-              name="globe"
-              color="white"
-              size={40}
-              style={{marginTop: hp(0.4), marginLeft: hp(0.4)}}
-            />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
-                Movie Show
-              </Text>
-            </View>
-            <View style={{flexDirection: 'row',marginTop:hp(0)}}>
-              <View style={{marginRight: hp(1)}}>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
-                  TIME IN <Text style={{color:'#5669FF'}}>00:00 |</Text>
-                </Text>
-              </View>
-              <View>
-                <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginVertical: hp(2.5),marginHorizontal:hp(5.3)}}>
-          
-            <Image style={{width:wp(6),height:hp(3)}} source={{uri:'listicon'}} resizeMode='cover'/>
-          </View>
-        </View>
-        </TouchableOpacity>
+          </TouchableOpacity>)
+        })}
         
        
-      </ScrollView>
+      </ScrollView>):( <View style={{marginTop: hp(3)}}>
+        
+        {tagData?.map((e,i)=>{
+          // console.log(e.tag_logo)
+          const {tag_id,tag_desc,tag_logo,setup_name}=e
+          return(<TouchableOpacity onPress={()=>props.navigation.navigate('DetailScreen',e)} key={i}>
+          <View
+            style={{
+              width: wp(90),
+              height: hp(7.9),
+              flexDirection: 'row',
+              marginHorizontal: hp(2.5),
+              marginBottom: hp(2),
+              backgroundColor: 'white',
+              borderRadius: hp(1.3),
+            }}>
+            <View
+              style={{
+                width: wp(12),
+                height: hp(6),
+                backgroundColor: '#58D68D ',
+                borderRadius: hp(2),
+                marginVertical: hp(1),
+                marginHorizontal: hp(1.5),
+                marginRight: hp(3),
+              }}>
+               <Image style={{width:wp(12),height:hp(6),borderRadius:hp(1)}} source={{uri:tag_logo}} resizeMode='cover'/>
+              
+            </View>
+            <View>
+              <View>
+                <Text
+                  style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
+                  {tag_desc}
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row',marginTop:hp(0)}}>
+                <View style={{marginRight: hp(1)}}>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
+                    TIME {setup_name} <Text style={{color:'#5669FF'}}>00:00 |</Text>
+                  </Text>
+                </View>
+                <View>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
+                </View>
+              </View>
+            </View>
+            <View style={{marginVertical: hp(2.5),marginHorizontal:hp(3)}}>
+            
+              <Image style={{width:wp(6),height:hp(3)}} source={{uri:setup_name =='in' ? 'yelo' : 'listicon'}} resizeMode='cover'/>
+            </View>
+          </View>
+          </TouchableOpacity>)
+        })}
+        
+       
+      </View>)}
+      {/* <ScrollView style={{marginTop: hp(3)}}>
+        
+        {tagData?.map((e,i)=>{
+          // console.log(e.tag_logo)
+          const {tag_id,tag_desc,tag_logo,setup_name}=e
+          return(<TouchableOpacity onPress={()=>props.navigation.navigate('DetailScreen',e)} key={i}>
+          <View
+            style={{
+              width: wp(90),
+              height: hp(7.9),
+              flexDirection: 'row',
+              marginHorizontal: hp(2.5),
+              marginBottom: hp(2),
+              backgroundColor: 'white',
+              borderRadius: hp(1.3),
+            }}>
+            <View
+              style={{
+                width: wp(12),
+                height: hp(6),
+                backgroundColor: '#58D68D ',
+                borderRadius: hp(2),
+                marginVertical: hp(1),
+                marginHorizontal: hp(1.5),
+                marginRight: hp(3),
+              }}>
+               <Image style={{width:wp(12),height:hp(6),borderRadius:hp(1)}} source={{uri:tag_logo}} resizeMode='cover'/>
+              
+            </View>
+            <View>
+              <View>
+                <Text
+                  style={{color: '#120D26', fontSize: hp(2.5),fontWeight:'600', marginTop: hp(1.3),fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>
+                  {tag_desc}
+                </Text>
+              </View>
+              <View style={{flexDirection: 'row',marginTop:hp(0)}}>
+                <View style={{marginRight: hp(1)}}>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>
+                    TIME {setup_name} <Text style={{color:'#5669FF'}}>00:00 |</Text>
+                  </Text>
+                </View>
+                <View>
+                  <Text style={{color: '#807A7A', fontSize: hp(1.5),fontWeight:'600'}}>TIME OUT <Text style={{color:'#5669FF'}}>00:00 </Text></Text>
+                </View>
+              </View>
+            </View>
+            <View style={{marginVertical: hp(2.5),marginHorizontal:hp(3)}}>
+            
+              <Image style={{width:wp(6),height:hp(3)}} source={{uri:setup_name =='in' ? 'yelo' : 'listicon'}} resizeMode='cover'/>
+            </View>
+          </View>
+          </TouchableOpacity>)
+        })}
+        
+       
+      </ScrollView> */}
     </>
   );
 };

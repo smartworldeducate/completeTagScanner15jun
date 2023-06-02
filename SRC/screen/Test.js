@@ -1,59 +1,60 @@
-import { View, Text, TextInput ,StyleSheet} from 'react-native'
-import React from 'react'
-import Icon from 'react-native-vector-icons/Ionicons';
-import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-  } from 'react-native-responsive-screen';
-  
+import { View, Text ,Button} from 'react-native'
+import React, { useState } from 'react'
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
 
 const Test = () => {
-  return (
-   
-    <View style={{width:wp(85),flexDirection:'row', borderColor:'gray', borderWidth:1,borderRadius:hp(1)}}>
-    <View>
-    <Icon style={styles.searchIcon} name="mail-outline" size={20} color="#000"/>
-    </View>
-   <View>
-   <TextInput
-        style={styles.input}
-        placeholder="User Nickname"
-        onChangeText={(searchString) => {this.setState({searchString})}}
-        underlineColorAndroid="transparent"
-    />
-   </View>
-    </View>
+  const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [time,setTime]=useState('')
+  const [date,setDate]=useState('')
+  const showTimePicker = () => {
+    setTimePickerVisibility(true);
+  };
+  
+  const hideTimePicker = () => {
+    setTimePickerVisibility(false);
+  };
+  
+  const handleConfirm = (time) => {
+    const tm=new Date(time)
+    const x=tm.toLocaleTimeString()
+    setTime(x)
+    hideTimePicker();
 
+    //date
+    const showDatePicker = () => {
+      setDatePickerVisibility(true);
+    };
+  
+    const hideDatePicker = () => {
+      setDatePickerVisibility(false);
+    };
+  
+    const handleConfirm = (date) => {
+      const dt=new Date(date)
+      const x=dt.toDateString()
+      setDate(x)
+      hideDatePicker();
+    };
+  };
+  return (
+    <>
+    <View>
+      <Button title="Show Date Picker" onPress={showTimePicker} />
+      <DateTimePickerModal
+        isVisible={isTimePickerVisible}
+        mode="time"
+        onConfirm={handleConfirm}
+        onCancel={hideTimePicker}
+      />
+      
+    </View>
+    <View style={{width:200,height:150,borderRadius:10,borderColor:'red'}}>
+        <Text>{time}</Text>
+      </View>
+    </>
   )
 }
 
 export default Test
-
-const styles=StyleSheet.create({
-    searchSection: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        borderColor:'gray',
-        borderWidth:1,
-       
-        
-        paddingTop: 10,
-    },
-    searchIcon: {
-        padding: 10,
-    },
-    input: {
-        flex: 1,
-        paddingTop: 10,
-        paddingRight: 10,
-        paddingBottom: 10,
-        paddingLeft: 0,
-       
-        backgroundColor: '#fff',
-        color: '#424242',
-    },
-})
-

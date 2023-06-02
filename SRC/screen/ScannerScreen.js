@@ -127,30 +127,17 @@ const ScannerScreen = (props) => {
         </View>
                 {!scan && !ScanResult && (
                    <>
-                   <View style={[styles.categoryContainer,{marginTop:hp(12),marginBottom:hp(5)}]}>
-                        <TouchableOpacity
+                  <View>
+                  <TouchableOpacity
                             style={[styles.categoryBtn, { marginTop: hp(10) }]}
                             onPress={() => activeQR('active qr')}>
                             <View style={styles.categoryIcon}>
-                                {/* <Fontisto name="shopping-barcode" size={35} color="#FF6347" /> */}
-                                <ImageBackground resizeMode='contain' style={{width:wp(100),height:hp(160)}} source={{uri:"https://cdn.vectorstock.com/i/preview-1x/81/60/3d-fingerprint-recognition-vector-45768160.jpg"}}/>
+                                <Fontisto name="shopping-barcode" size={35} color="#FF6347" />
+                                {/* <ImageBackground resizeMode='contain' style={{width:wp(100),height:hp(160)}} source={{uri:"https://cdn.vectorstock.com/i/preview-1x/81/60/3d-fingerprint-recognition-vector-45768160.jpg"}}/> */}
                             </View>
                             <Text style={styles.categoryBtnTxt}>Scan Now</Text>
                         </TouchableOpacity>
-
-                    </View>
-                    <View style={[styles.categoryContainer,{marginTop:hp(15)}]}>
-                        <TouchableOpacity
-                            style={[styles.categoryBtn, { marginTop: hp(10) }]}
-                            onPress={() => activeQR('active qr')}>
-                            <View style={styles.categoryIcon}>
-                                {/* <Fontisto name="shopping-barcode" size={35} color="#FF6347" /> */}
-                                <ImageBackground resizeMode='contain' style={{width:wp(100),height:hp(160)}} source={{uri:"https://img.freepik.com/premium-vector/qr-code-scanning-with-characters_23-2148635444.jpg"}}/>
-                            </View>
-                            <Text style={styles.categoryBtnTxt}>Scan Now</Text>
-                        </TouchableOpacity>
-
-                    </View>
+                  </View>
                    </>
                 )}
 
@@ -163,7 +150,9 @@ const ScannerScreen = (props) => {
                             <TouchableOpacity onPress={scanAgain}>
                                 <Text style={styles.text}>
                                     <Icon name="shopping-barcode" size={60} color="white" />
+                                   
                                 </Text>
+                               
                             </TouchableOpacity>
                         </View>
                         <ScrollView>{reaadCode()}</ScrollView>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "249159142983",
+    "project_id": "tagscanner-f3186",
+    "storage_bucket": "tagscanner-f3186.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249159142983:android:1f6b318999d73c1bdb6b62",
+        "android_client_info": {
+          "package_name": "com.tagscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249159142983-9g1t3a7g1flhh1tj4m1424p47i7qq03d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tagscanner",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "249159142983-3r1307q40tb9de7qctsm4ckk244etg9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrFejd3yGhakwAt6l-SYVMKSR5d8-kEPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249159142983-3r1307q40tb9de7qctsm4ckk244etg9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

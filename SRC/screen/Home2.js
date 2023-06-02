@@ -134,7 +134,7 @@ const Home2 = props => {
                             flexDirection: 'row',
                             marginTop: hp(3),
                             height: hp(5),
-                            marginLeft: hp(7.6),
+                            marginLeft: hp(10.5),
                             borderRadius: hp(20),
                             backgroundColor: '#5D56F3',
                         }}>
@@ -235,7 +235,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -288,7 +288,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -345,7 +345,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -402,7 +402,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -455,7 +455,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -512,7 +512,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -574,7 +574,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -620,7 +620,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{
@@ -670,7 +670,7 @@ const Home2 = props => {
                             marginHorizontal: hp(2.5),
                             marginBottom: hp(2),
                             backgroundColor: 'white',
-                            borderRadius: hp(1.6),
+                            borderRadius: hp(1.3),
                         }}>
                         <View
                             style={{

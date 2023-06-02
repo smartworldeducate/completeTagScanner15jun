@@ -5,47 +5,187 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  TextInput
+  TextInput,
+  Button,
+  ActivityIndicator,
+  ToastAndroid
 } from 'react-native';
-import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Dropdown } from 'react-native-element-dropdown';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Build from 'react-native-vector-icons/FontAwesome';
 import User from 'react-native-vector-icons/AntDesign';
 import Lock from 'react-native-vector-icons/Ionicons';
+import Okey from 'react-native-vector-icons/Entypo';
 import Aero from 'react-native-vector-icons/AntDesign';
 import Camra from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-crop-picker';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+// import { Formik } from 'formik';
+// import * as yup from 'yup'
+import Toast from 'react-native-root-toast';
+import Modal from "react-native-modal";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { ScrollView } from 'react-native';
 import Check from 'react-native-vector-icons/AntDesign';
-
+import { registerUser } from '../features/users/userSlice';
 const RegisterScreen = (props) => {
+  const dispatch = useDispatch()
+  const message = useSelector((state) => state.register)
+  console.log(message)
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [animodal, setAnimodal] = useState(false);
+  const [success,setSuccess]=useState(false)
+  const [comp, setComp] = useState('')
+  const [full_name, setFname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmpass, setConfirmpass] = useState('')
+  const [visible, setVisible] = useState(false)
   const [show, setShow] = useState(true)
   const [image, setImage] = useState('');
+  const [imgBase64, setImgBase64] = useState(null);
   const [countryData, setCountryData] = useState(null);
+  const [status, setStatus] = useState('')
   const [isFocus, setIsFocus] = useState(false);
+  const [animation,setAnimation]=useState(true)
   const [country, setCountry] = useState([
-    { label: 'Admin', value: '1' },
-    { label: 'User', value: '2' },
+    { label: 'Admin', value: 'Y' },
+    { label: 'User', value: 'N' },
   ]);
+
+  const handleRwegister = () => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if(status == ""){
+      ToastAndroid.showWithGravity(  
+        "select user is required",  
+        ToastAndroid.LONG,  
+        ToastAndroid.CENTER  
+      );  
+    }
+    else if(full_name == ""){
+      ToastAndroid.showWithGravity(  
+        "name is required",  
+        ToastAndroid.LONG,  
+        ToastAndroid.CENTER  
+      );  
+    }
+    else if(reg.test(email) === false){
+      ToastAndroid.showWithGravity(  
+        "email is not correct",  
+        ToastAndroid.LONG,  
+        ToastAndroid.CENTER  
+      );  
+    }
+    else if(password !== confirmpass){
+      ToastAndroid.showWithGravity(  
+        "Passwoad and confirm password should be same",  
+        ToastAndroid.LONG,  
+        ToastAndroid.CENTER  
+      );  
+    }
+    else if (status && full_name && email && password && imgBase64 != " ") {
+      setAnimodal(true)
+      dispatch(registerUser({ user_type: status, full_name: full_name, email: email, password: password, photo: imgBase64, comp_name: comp }))
+      setImage('')
+      setComp('')
+      setFname('')
+      setEmail('')
+      setPassword('')
+      setConfirmpass('')
+      setShow(true)
+      setAnimodal(message?.isLoading)
+      setSuccess(message?.isSuccess)
+      setInterval(() => {
+        setSuccess(false)
+      },5000);
+      props.navigation.navigate("Login")
+
+     
+    } else {
+      ToastAndroid.showWithGravity(  
+        "All Fields are  required",  
+        ToastAndroid.LONG,  
+        ToastAndroid.CENTER  
+      );  
+    }
+  };
+
+
   const takePhotoFromCamera = () => {
+    setModalVisible(false);
+    setShow(false)
     setImage('');
     ImagePicker.openCamera({
+      mediaType: 'photo',
+      includeBase64: true,
       compressImageMaxWidth: 300,
       compressImageMaxHeight: 300,
       cropping: true,
       compressImageQuality: 0.7
-    }).then(image => {
-      console.log(image);
+    }).then((image) => {
       setImage(image.path);
-      setShow(false)
+      setImgBase64(image.data)
+      
     });
   }
+
+  const choosePhotoFromLibrary = () => {
+    setModalVisible(false);
+    setShow(false)
+    setImage('');
+    ImagePicker.openPicker({
+      includeBase64: true,
+      width: 300,
+      height: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image => {
+      console.log("library image",image.data)
+      setImgBase64(image.data)
+      setImage(image.path);
+      
+      
+    });
+  }
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: '249159142983-3r1307q40tb9de7qctsm4ckk244etg9h.apps.googleusercontent.com',
+    });
+  }, [])
+  const signinWithGoogle = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      const { id } = userInfo?.user
+      console.log(id)
+      // props.navigation.navigate('Home');
+
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  }
+
+
   return (
     <>
       <StatusBar
@@ -53,16 +193,66 @@ const RegisterScreen = (props) => {
         barStyle="dark-content"
         hidden={false}
       />
+     
+       {success && (<View style={{ flex: 1 }}>
+        <Modal isVisible={success}>
+          <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1) }}>
+            <View style={{width:wp(15),height:hp(7.5),backgroundColor:'#82E0AA',borderRadius:hp(50),marginHorizontal:hp(18),marginTop:hp(2.5)}}>
+              <Okey style={{marginHorizontal:hp(0.5),marginVertical:hp(0.5)}} name='check' size={50} color='#1D8348'/>
+            </View>
+            <View style={{marginTop:hp(2),marginHorizontal:hp(7),width:wp(80)}}>
+              <Text style={{fontSize:hp(2.5),color:'#82E0AA'}}>user register successfully</Text>
+            </View>
 
+          </View>
+        </Modal>
+      </View>)}
+      {animation && (<View style={{ flex: 1 }}>
+        <Modal isVisible={animodal}>
+          <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1) }}>
+
+            <View style={{marginTop:hp(8)}}>
+              <ActivityIndicator animating={animation} size={'large'}/>
+            </View>
+
+          </View>
+        </Modal>
+      </View>)}
+      {isModalVisible && (<View style={{ flex: 1 }}>
+        <Modal isVisible={isModalVisible}>
+          <View style={{ width: wp(90), height: hp(25), backgroundColor: '#fff', borderRadius: hp(1)}}>
+
+            
+              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
+              <TouchableOpacity onPress={takePhotoFromCamera}  style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center'}}>
+                <Text style={{fontSize:hp(2),color:'#5669FF'}}>choose from camara</Text>
+              </TouchableOpacity>
+              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
+
+              <TouchableOpacity onPress={choosePhotoFromLibrary} style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center' }}>
+                <Text style={{fontSize:hp(2),color:'#5669FF'}}>choose from gallary</Text>
+              </TouchableOpacity>
+
+              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
+
+
+
+
+            <TouchableOpacity onPress={toggleModal} style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center'}}>
+              <Text style={{fontSize:hp(2),color:'#5669FF'}}>cancel</Text>
+            </TouchableOpacity>
+
+
+          </View>
+        </Modal>
+      </View>)}
       <View style={{ width: wp(100), paddingHorizontal: hp(3), backgroundColor: 'white' }}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <View style={{ flexDirection: 'row', marginTop: hp(2) }}>
             <View style={{ marginTop: hp(0.5) }}>
               <Check name='arrowleft' size={25} color='black' />
             </View>
-            {/* <View style={{ marginLeft: hp(1.5),mt:hp(0.3) }}>
-                            <Text style={{color: '#120D26', fontSize: hp(2.4),fontWeight:'600' ,fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>Create Tags</Text>
-                        </View> */}
+
           </View>
         </TouchableOpacity>
       </View>
@@ -70,7 +260,7 @@ const RegisterScreen = (props) => {
         {image && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
 
           <View style={{ width: wp(90), position: 'relative', marginHorizontal: hp(16), marginTop: hp(3), marginBottom: hp(2) }}>
-            <TouchableOpacity onPress={takePhotoFromCamera} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(2.5), left: hp(11), zIndex: 1 }}>
+            <TouchableOpacity onPress={toggleModal} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(2.5), left: hp(11), zIndex: 1 }}>
               <Camra
 
                 name="camera"
@@ -88,7 +278,7 @@ const RegisterScreen = (props) => {
         {show && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
 
           <View style={{ width: wp(90), position: 'relative', marginHorizontal: hp(16), marginTop: hp(3), marginBottom: hp(2) }}>
-            <TouchableOpacity onPress={takePhotoFromCamera} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(1), left: hp(11), zIndex: 1 }}>
+            <TouchableOpacity onPress={toggleModal} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(1), left: hp(11), zIndex: 1 }}>
               <Camra
 
                 name="camera"
@@ -105,8 +295,10 @@ const RegisterScreen = (props) => {
         </View>)}
 
 
+
         <View
           style={{ width: wp(100), height: hp(100), backgroundColor: '#fff' }}>
+
           <View style={{ marginTop: hp(1) }}>
 
             <View style={{ width: wp(90), marginHorizontal: hp(2.6), marginBottom: hp(2) }}>
@@ -117,6 +309,7 @@ const RegisterScreen = (props) => {
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
                 data={country}
+                name="user_type"
                 search
                 maxHeight={300}
                 labelField="label"
@@ -128,6 +321,7 @@ const RegisterScreen = (props) => {
                 onBlur={() => setIsFocus(false)}
                 onChange={(item, i) => {
                   setCountryData(item.label);
+                  setStatus(item.value)
                   setIsFocus(false);
                 }}
               />
@@ -159,13 +353,16 @@ const RegisterScreen = (props) => {
                 <View>
                   <TextInput
                     style={styles.input}
+                    name='company_name'
                     placeholder="Company Name"
-
+                    onChangeText={((e) => setComp(e))}
+                    value={comp}
                     underlineColorAndroid="transparent"
                   />
                 </View>
               </View>
             </View>
+
             <View
               style={{
                 width: wp(95),
@@ -192,13 +389,17 @@ const RegisterScreen = (props) => {
                 <View>
                   <TextInput
                     style={styles.input}
+                    name="full_name"
                     placeholder="Full Name"
+                    value={full_name}
+                    onChangeText={((e) => setFname(e))}
 
                     underlineColorAndroid="transparent"
                   />
                 </View>
               </View>
             </View>
+
             <View
               style={{
                 width: wp(95),
@@ -222,16 +423,21 @@ const RegisterScreen = (props) => {
                     color="#807A7A"
                   />
                 </View>
+
                 <View>
+
                   <TextInput
                     style={styles.input}
+                    name="email"
                     placeholder="Email"
-
+                    value={email}
+                    onChangeText={(e)=>setEmail(e)}
                     underlineColorAndroid="transparent"
                   />
                 </View>
               </View>
             </View>
+
             <View
               style={{
                 width: wp(95),
@@ -258,13 +464,17 @@ const RegisterScreen = (props) => {
                 <View>
                   <TextInput
                     style={styles.input}
+                    name="password"
                     placeholder="Password"
+                    value={password}
+                    onChangeText={((e) => setPassword(e))}
 
                     underlineColorAndroid="transparent"
                   />
                 </View>
               </View>
             </View>
+
             <View
               style={{
                 width: wp(95),
@@ -291,17 +501,19 @@ const RegisterScreen = (props) => {
                 <View>
                   <TextInput
                     style={styles.input}
+                    name="confirm_password"
                     placeholder="Confirm Password"
+                    value={confirmpass}
+                    onChangeText={((e) => setConfirmpass(e))}
 
                     underlineColorAndroid="transparent"
                   />
                 </View>
               </View>
             </View>
-
 
             <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5) }}>
-              <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+              <TouchableOpacity onPress={handleRwegister}>
                 <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(1.5), borderWidth: 1, borderColor: 'white', backgroundColor: '#5669FF', flexDirection: 'row', justifyContent: 'space-evenly' }}>
                   <View style={{ width: wp(15) }}></View>
                   <View style={{ width: wp(20), marginVertical: hp(2) }}>
@@ -313,12 +525,17 @@ const RegisterScreen = (props) => {
                 </View>
               </TouchableOpacity>
             </View>
+
             <View style={{ width: wp(50), marginHorizontal: hp(25), marginTop: hp(3) }}>
               <Text>OR</Text>
             </View>
 
             <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5) }}>
-              <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+              <TouchableOpacity onPress={() => signinWithGoogle().then(res => {
+                console.log("respo:", res)
+              }).catch(error => {
+                console.log(error)
+              })}>
                 <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(2), borderWidth: 1, borderColor: 'white', backgroundColor: '#F2F3F4', flexDirection: 'row' }}>
                   <View style={{ width: wp(15), marginTop: hp(1.5), marginLeft: hp(6.5) }}>
                     <Image style={{ width: wp(10), height: hp(5) }} source={{ uri: 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png' }} />
@@ -331,13 +548,16 @@ const RegisterScreen = (props) => {
                 </View>
               </TouchableOpacity>
             </View>
-            <View style={{ width: wp(90), marginHorizontal: hp(11.5), marginTop: hp(2), marginBottom: hp(5) }}>
-              <Text style={{ color: 'black' }}>Dont Have AN Account ? <Text style={{ color: '#5669FF' }}>Sign Up</Text></Text>
-            </View>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Login')} style={{ width: wp(90), marginHorizontal: hp(11.5), marginTop: hp(2), marginBottom: hp(5) }}>
+              <Text style={{ color: 'black' }}>Already Have an Account ? <Text style={{ color: '#5669FF' }}>Sign In</Text></Text>
+            </TouchableOpacity>
 
 
           </View>
         </View>
+
+
+
 
       </ScrollView>
     </>

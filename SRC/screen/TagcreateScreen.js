@@ -1,6 +1,7 @@
 import { View, Text, StatusBar, TouchableOpacity, StyleSheet, TextInput, ScrollView, Image } from 'react-native'
 import React, { useState } from 'react'
 import Check from 'react-native-vector-icons/AntDesign';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -12,14 +13,79 @@ import Date from 'react-native-vector-icons/Fontisto';
 import Folder from 'react-native-vector-icons/MaterialCommunityIcons';
 import Rite from 'react-native-vector-icons/AntDesign';
 import ImagePicker from 'react-native-image-crop-picker';
-
+import Modal from "react-native-modal";
 import { Button } from 'react-native-magnus';
 import { Dropdown } from 'react-native-element-dropdown';
 const TagcreateScreen = (props) => {
+    //datetimepicker start
+    const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+    const [endTimePickerVisible, setEndTimePickerVisibility] = useState(false);
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [stime, setStime] = useState('')
+    const [etime, setEtime] = useState('')
+    const [dateView, setDateView] = useState(true)
+    const [date, setDate] = useState('')
+    const [starttime, setStarttime] = useState(true)
+    const [endtime, setEndtime] = useState(true)
+
+    const showTimePicker = () => {
+        setTimePickerVisibility(true);
+        setStime('')
+    };
+    const hideTimePicker = () => {
+        setTimePickerVisibility(false);
+    };
+
+    const handleSconfirm = (time) => {
+
+        const x = time.toLocaleTimeString();
+        setStime(x);
+        hideTimePicker();
+        setStarttime(false);
+    }
+
+    //ent time
+    const showEndTimePicker = () => {
+        setEndTimePickerVisibility(true);
+        setEtime('')
+    };
+    const hideEndTimePicker = () => {
+        setEndTimePickerVisibility(false);
+    };
+
+    const handleEndConfirm = (time) => {
+
+        const x = time.toLocaleTimeString();
+        setEtime(x);
+        hideEndTimePicker();
+        setEndtime(false);
+    }
+
+
+    //date
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+        setDate('')
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleDateConfirm = (date) => {
+        console.log(date)
+        const dt = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear()
+        setDate(dt)
+        hideDatePicker();
+        setDateView(false)
+    };
+
+    //datetimepicker end
     const [logo, setLogo] = useState(true)
     const [banner, setBanner] = useState(true)
     const [countryData, setCountryData] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
+
     const [country, setCountry] = useState([
         { label: 'Admin', value: '1' },
         { label: 'User', value: '2' },
@@ -37,10 +103,15 @@ const TagcreateScreen = (props) => {
     }
     const [image, setImage] = useState('');
     const [imageb, setImageb] = useState('');
+    const [imgBase64, setImgBase64] = useState(null);
+    const [isModalVisible, setModalVisible] = useState(false);
+    const [isModalVisibleb, setModalVisibleb] = useState(false);
 
 
     const takePhotoFromCamera = () => {
         ImagePicker.openCamera({
+            mediaType: 'photo',
+            includeBase64: true,
             compressImageMaxWidth: 300,
             compressImageMaxHeight: 300,
             cropping: true,
@@ -49,10 +120,13 @@ const TagcreateScreen = (props) => {
             console.log(image);
             setImage(image.path);
             setLogo(false)
+            setModalVisible(false)
         });
     }
     const takePhotoFromCamerab = () => {
         ImagePicker.openCamera({
+            mediaType: 'photo',
+            includeBase64: true,
             compressImageMaxWidth: 300,
             compressImageMaxHeight: 300,
             cropping: true,
@@ -61,8 +135,45 @@ const TagcreateScreen = (props) => {
             console.log(image);
             setImageb(image.path);
             setBanner(false)
+            setModalVisibleb(false)
         });
     }
+    const choosePhotoFromLibrary = () => {
+        ImagePicker.openPicker({
+            mediaType: 'photo',
+            includeBase64: true,
+            width: 300,
+            height: 300,
+            cropping: true,
+            compressImageQuality: 0.7
+        }).then(image => {
+            setImgBase64(image.data)
+            setImage(image.path);
+            setModalVisible(false);
+        });
+    }
+
+    const choosePhotoFromLibraryb = () => {
+        ImagePicker.openPicker({
+            mediaType: 'photo',
+            includeBase64: true,
+            width: 300,
+            height: 300,
+            cropping: true,
+            compressImageQuality: 0.7
+        }).then(imageb => {
+            setImgBase64(imageb.data)
+            setImage(imageb.path);
+            setModalVisibleb(false);
+        });
+    }
+
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
+    const toggleModalb = () => {
+        setModalVisibleb(!isModalVisibleb);
+    };
 
     const handleReset = () => {
         setImage('');
@@ -73,18 +184,7 @@ const TagcreateScreen = (props) => {
         setBanner(true)
     }
 
-    // const choosePhotoFromLibrary = () => {
-    //     ImagePicker.openPicker({
-    //         width: 300,
-    //         height: 300,
-    //         cropping: true,
-    //         compressImageQuality: 0.7
-    //     }).then(image => {
-    //         console.log(image);
-    //         setImage(image.path);
-
-    //     });
-    // }
+   
     return (
         <>
             <StatusBar
@@ -92,19 +192,86 @@ const TagcreateScreen = (props) => {
                 barStyle="dark-content"
                 hidden={false}
             />
+            {isModalVisible && (<View style={{ flex: 1 }}>
+                <Modal isVisible={isModalVisible}>
+                    <View style={{ width: wp(90), height: hp(44), backgroundColor: '#fff', borderRadius: hp(1) }}>
 
+                        <View style={{ width: wp(90), height: hp(25), flexDirection: 'row', justifyContent: 'space-evenly', marginTop: hp(15) }}>
+
+                            <View style={{ width: wp(40) }}>
+                                <Button onPress={takePhotoFromCamera} title="choose from camara" />
+                            </View>
+                            <View style={{ width: wp(40) }}>
+                                <Button onPress={choosePhotoFromLibrary} title="choose from gallary" />
+                            </View>
+
+                        </View>
+
+
+
+                        <View style={{ width: wp(90), height: hp(15) }}>
+                            <Button title="Hide modal" onPress={toggleModal} />
+                        </View>
+
+
+                    </View>
+                </Modal>
+            </View>)}
+            {isModalVisibleb && (<View style={{ flex: 1 }}>
+                <Modal isVisible={isModalVisibleb}>
+                    <View style={{ width: wp(90), height: hp(44), backgroundColor: '#fff', borderRadius: hp(1) }}>
+
+                        <View style={{ width: wp(90), height: hp(25), flexDirection: 'row', justifyContent: 'space-evenly', marginTop: hp(15) }}>
+
+                            <View style={{ width: wp(40) }}>
+                                <Button onPress={takePhotoFromCamerab} title="choose from camara" />
+                            </View>
+                            <View style={{ width: wp(40) }}>
+                                <Button onPress={choosePhotoFromLibraryb} title="choose from gallary" />
+                            </View>
+
+                        </View>
+
+
+
+                        <View style={{ width: wp(90), height: hp(15) }}>
+                            <Button title="Hide modal" onPress={toggleModalb} />
+                        </View>
+
+
+                    </View>
+                </Modal>
+            </View>)}
             <View style={{ width: wp(90), marginHorizontal: hp(3) }}>
                 <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <View style={{ flexDirection: 'row', marginTop: hp(5) }}>
                         <View style={{ marginTop: hp(0.5) }}>
                             <Check name='arrowleft' size={25} color='black' />
                         </View>
-                        <View style={{ marginLeft: hp(1.5),mt:hp(0.3) }}>
-                            <Text style={{color: '#120D26', fontSize: hp(2.4),fontWeight:'600' ,fontFamily:'NunitoSans_7pt-Regular',fontStyle:'normal'}}>Create Tags</Text>
+                        <View style={{ marginLeft: hp(1.5), mt: hp(0.3) }}>
+                            <Text style={{ color: '#120D26', fontSize: hp(2.4), fontWeight: '600', fontFamily: 'NunitoSans_7pt-Regular', fontStyle: 'normal' }}>Create Tags</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
             </View>
+            <DateTimePickerModal
+                isVisible={isTimePickerVisible}
+                mode="time"
+                onConfirm={handleSconfirm}
+                onCancel={hideTimePicker}
+            />
+            <DateTimePickerModal
+                isVisible={endTimePickerVisible}
+                mode="time"
+                onConfirm={handleEndConfirm}
+                onCancel={hideEndTimePicker}
+            />
+            <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                onConfirm={handleDateConfirm}
+                onCancel={hideDatePicker}
+            />
             <ScrollView>
                 <View style={{ width: wp(90), flexDirection: 'row', justifyContent: 'space-evenly', marginHorizontal: hp(2.4), marginTop: hp(4) }}>
                     <View style={{ width: wp(43), marginRight: hp(1.5) }}>
@@ -170,7 +337,7 @@ const TagcreateScreen = (props) => {
                                 width: wp(90),
                                 marginHorizontal: hp(2.5),
                                 marginBottom: hp(2),
-                               
+
                             }}>
                             <View
                                 style={{
@@ -180,7 +347,7 @@ const TagcreateScreen = (props) => {
                                     borderColor: '#E4DFDF',
                                     borderWidth: 1,
                                     borderRadius: hp(1.2),
-                                    backgroundColor:'#FFFFFF'
+                                    backgroundColor: '#FFFFFF'
                                 }}>
                                 <View>
                                     <Icon
@@ -201,7 +368,7 @@ const TagcreateScreen = (props) => {
                             </View>
                         </View>
                     </View>
-                    <View>
+                    {date && (<TouchableOpacity onPress={showDatePicker}>
                         <View
                             style={{
                                 width: wp(90),
@@ -216,7 +383,43 @@ const TagcreateScreen = (props) => {
                                     borderColor: '#E4DFDF',
                                     borderWidth: 1,
                                     borderRadius: hp(1.2),
-                                    backgroundColor:'#FFFFFF'
+                                    backgroundColor: '#FFFFFF'
+                                }}>
+                                <View>
+                                    <Date
+                                        style={styles.searchIcon}
+                                        name='date'
+                                        size={20}
+                                        color="#E4DFDF"
+                                    />
+                                </View>
+                                <View>
+                                    <TextInput
+                                        style={styles.input}
+                                        placeholder={'Select Date'}
+                                        value={date}
+                                        underlineColorAndroid="transparent"
+                                    />
+                                </View>
+                            </View>
+                        </View>
+                    </TouchableOpacity>)}
+                    {dateView && (<TouchableOpacity onPress={showDatePicker}>
+                        <View
+                            style={{
+                                width: wp(90),
+                                marginHorizontal: hp(2.5),
+                                marginBottom: hp(2),
+                            }}>
+                            <View
+                                style={{
+                                    width: wp(90),
+                                    height: hp(7.5),
+                                    flexDirection: 'row',
+                                    borderColor: '#E4DFDF',
+                                    borderWidth: 1,
+                                    borderRadius: hp(1.2),
+                                    backgroundColor: '#FFFFFF'
                                 }}>
                                 <View>
                                     <Date
@@ -236,9 +439,20 @@ const TagcreateScreen = (props) => {
                                 </View>
                             </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>)}
                     <View style={{ width: wp(90), flexDirection: 'row', marginHorizontal: hp(2.5), marginBottom: hp(2) }}>
-                        <View style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor:'#FFFFFF',borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1, marginRight: hp(2) }}>
+                        {stime && (<TouchableOpacity onPress={showTimePicker} style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor: '#FFFFFF', borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1, marginRight: hp(2) }}>
+                            <View style={{ marginVertical: hp(0.5) }}>
+                                <Tin style={{ marginVertical: hp(1.2), marginHorizontal: hp(1.3) }} name='clock-time-nine' size={30} color='#E4DFDF' />
+
+
+                            </View>
+                            <View style={{ marginVertical: hp(2.5) }}>
+                                <Text>{stime}</Text>
+                            </View>
+
+                        </TouchableOpacity>)}
+                        {starttime && (<TouchableOpacity onPress={showTimePicker} style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor: '#FFFFFF', borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1, marginRight: hp(2) }}>
                             <View style={{ marginVertical: hp(0.5) }}>
                                 <Tin style={{ marginVertical: hp(1.2), marginHorizontal: hp(1.3) }} name='clock-time-nine' size={30} color='#E4DFDF' />
 
@@ -248,8 +462,19 @@ const TagcreateScreen = (props) => {
                                 <Text>Start Time</Text>
                             </View>
 
-                        </View>
-                        <View style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor:'#FFFFFF',borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1 }}>
+                        </TouchableOpacity>)}
+                        {etime && (<TouchableOpacity onPress={showEndTimePicker} style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor: '#FFFFFF', borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1 }}>
+                            <View style={{ marginVertical: hp(0.5) }}>
+                                <Tout style={{ marginVertical: hp(1.2), marginHorizontal: hp(1.3) }} name='clock-time-three' size={30} color='#E4DFDF' />
+
+
+                            </View>
+                            <View style={{ marginVertical: hp(2.5) }}>
+                                <Text>{etime}</Text>
+                            </View>
+
+                        </TouchableOpacity>)}
+                        {endtime && (<TouchableOpacity onPress={showEndTimePicker} style={{ width: wp(43), height: hp(7.5), flexDirection: 'row', backgroundColor: '#FFFFFF', borderRadius: hp(1.2), borderColor: '#E4DFDF', borderWidth: 1 }}>
                             <View style={{ marginVertical: hp(0.5) }}>
                                 <Tout style={{ marginVertical: hp(1.2), marginHorizontal: hp(1.3) }} name='clock-time-three' size={30} color='#E4DFDF' />
 
@@ -259,7 +484,7 @@ const TagcreateScreen = (props) => {
                                 <Text>End Time</Text>
                             </View>
 
-                        </View>
+                        </TouchableOpacity>)}
                     </View>
                     {image && (<View style={{
                         position: 'relative',
@@ -272,11 +497,11 @@ const TagcreateScreen = (props) => {
                         </View>
 
                         <View style={{ width: wp(90), height: hp(15) }}>
-                            <Image style={{ width: wp(90), height: hp(15), borderRadius: hp(2) }} source={{ uri: image }} />
+                            <Image style={{ width: wp(90), height: hp(15), borderRadius: hp(1.5) }} source={{ uri: image }} resizeMode='stretch' />
                         </View>
                     </View>)}
                     {logo && (
-                        <TouchableOpacity onPress={takePhotoFromCamera}>
+                        <TouchableOpacity onPress={toggleModal}>
                             <View style={{ width: wp(90), height: hp(15), borderRadius: hp(1.2), marginBottom: hp(2), borderColor: '#E4DFDF', borderWidth: 1, marginHorizontal: hp(2.5), backgroundColor: 'white' }}>
                                 <View style={{ width: wp(50), marginHorizontal: hp(12), marginTop: hp(1) }}>
                                     <View style={{ marginLeft: hp(5) }}>
@@ -296,10 +521,10 @@ const TagcreateScreen = (props) => {
                                 <Text style={{ color: '#fff', marginHorizontal: hp(0.7) }}>X</Text></TouchableOpacity>
                         </View>
                         <View style={{ width: wp(90), height: hp(15) }}>
-                            <Image style={{ width: wp(90), height: hp(15), borderRadius: hp(2) }} source={{ uri: imageb }} />
+                            <Image style={{ width: wp(90), height: hp(15), borderRadius: hp(2) }} source={{ uri: imageb }} resizeMode='stretch' />
                         </View>
                     </View>)}
-                    {banner && (<TouchableOpacity onPress={takePhotoFromCamerab}>
+                    {banner && (<TouchableOpacity onPress={toggleModalb}>
                         <View style={{ width: wp(90), height: hp(15), borderRadius: hp(2), borderColor: '#E4DFDF', borderWidth: 1, marginHorizontal: hp(2.5), backgroundColor: 'white' }}>
                             <View style={{ width: wp(50), marginHorizontal: hp(12), marginTop: hp(1) }}>
                                 <View style={{ marginLeft: hp(5) }}>
@@ -312,7 +537,7 @@ const TagcreateScreen = (props) => {
                         </View>
                     </TouchableOpacity>)}
 
-                    <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5),marginBottom:hp(3)}}>
+                    <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5), marginBottom: hp(3) }}>
                         <TouchableOpacity >
                             <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(1.5), borderWidth: 1, borderColor: 'white', backgroundColor: '#5669FF', flexDirection: 'row', justifyContent: 'space-evenly' }}>
                                 <View style={{ width: wp(15) }}></View>
@@ -334,7 +559,7 @@ const TagcreateScreen = (props) => {
                             </View>
                         </View>
 
-                        <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5) ,marginBottom:hp(3)}}>
+                        <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(2.5), marginBottom: hp(3) }}>
                             <TouchableOpacity >
                                 <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(1.5), borderWidth: 1, borderColor: 'white', backgroundColor: '#5669FF', flexDirection: 'row', justifyContent: 'space-evenly' }}>
                                     <View style={{ width: wp(15) }}></View>
@@ -393,7 +618,7 @@ const styles = StyleSheet.create({
     },
     searchIcon: {
         padding: 18,
-        marginTop: hp(0.5)
+        marginTop: hp(0)
     },
     input: {
         flex: 1,
