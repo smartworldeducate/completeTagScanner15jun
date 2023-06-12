@@ -6,116 +6,116 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml
+8-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml
+9-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:3:5-67
-11-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:3:22-64
+11-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:3:22-64
 12    <uses-permission android:name="android.permission.VIBRATE" />
-12-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:4:5-65
-12-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:4:22-63
+12-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:4:5-65
+12-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:4:22-63
 13    <uses-permission android:name="android.permission.WAKE_LOCK" />
-13-->[:react-native-firebase_auth] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-68
-13-->[:react-native-firebase_auth] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-65
+13-->[:react-native-firebase_auth] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-68
+13-->[:react-native-firebase_auth] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-65
 14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->[:react-native-firebase_auth] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-79
-14-->[:react-native-firebase_auth] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-76
+14-->[:react-native-firebase_auth] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-79
+14-->[:react-native-firebase_auth] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-76
 15    <uses-permission android:name="android.permission.CAMERA" />
-15-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:5-65
-15-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:22-62
+15-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:5-65
+15-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:22-62
 16
 17    <uses-feature
-17-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:11:5-13:36
+17-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:11:5-13:36
 18        android:name="android.hardware.camera"
-18-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:12:9-47
+18-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:12:9-47
 19        android:required="false" />
-19-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:13:9-33
+19-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:13:9-33
 20    <uses-feature
-20-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:14:5-16:36
+20-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:14:5-16:36
 21        android:name="android.hardware.camera.autofocus"
-21-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:15:9-57
+21-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:15:9-57
 22        android:required="false" />
-22-->[:react-native-camera] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:16:9-33
+22-->[:react-native-camera] /home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:16:9-33
 23
 24    <queries>
-24-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-13:15
+24-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-13:15
 25        <intent>
-25-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-12:18
+25-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-12:18
 26            <action android:name="android.media.action.IMAGE_CAPTURE" />
-26-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-73
-26-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:21-70
+26-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-73
+26-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:21-70
 27        </intent>
 28    </queries>
 29
 30    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-30-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:5-81
-30-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:22-78
+30-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:5-81
+30-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:22-78
 31
 32    <application
-32-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:6:5-25:19
+32-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:6:5-25:19
 33        android:name="com.tagscanner.MainApplication"
-33-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:7:7-38
+33-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:7:7-38
 34        android:allowBackup="false"
-34-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:11:7-34
+34-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:11:7-34
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 35-->[androidx.core:core:1.7.0] /home/linux/.gradle/caches/transforms-3/5c85eefd62ee9cacecdf09834619c6ef/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 36        android:icon="@mipmap/ic_launcher"
-36-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:9:7-41
+36-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:9:7-41
 37        android:label="@string/app_name"
-37-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:8:7-39
+37-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:8:7-39
 38        android:roundIcon="@mipmap/ic_launcher_round"
-38-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:10:7-52
+38-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:10:7-52
 39        android:theme="@style/AppTheme" >
-39-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:12:7-38
+39-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:12:7-38
 40        <activity
-40-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:13:7-24:18
+40-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:13:7-24:18
 41            android:name="com.tagscanner.MainActivity"
-41-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:14:9-37
+41-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:14:9-37
 42            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-42-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:16:9-118
+42-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:16:9-118
 43            android:exported="true"
-43-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:19:9-32
+43-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:19:9-32
 44            android:label="@string/app_name"
-44-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:15:9-41
+44-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:15:9-41
 45            android:launchMode="singleTask"
-45-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:17:9-40
+45-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:17:9-40
 46            android:windowSoftInputMode="adjustResize" >
-46-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:18:9-51
+46-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:18:9-51
 47            <intent-filter>
-47-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:20:9-23:25
+47-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:20:9-23:25
 48                <action android:name="android.intent.action.MAIN" />
-48-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:21:13-65
-48-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:21:21-62
+48-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:21:13-65
+48-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:21:21-62
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:22:13-73
-50-->/home/linux/Downloads/ReactnativeProject/TagScanner/android/app/src/main/AndroidManifest.xml:22:23-70
+50-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:22:13-73
+50-->/home/linux/Documents/TagScanner/android/app/src/main/AndroidManifest.xml:22:23-70
 51            </intent-filter>
 52        </activity>
 53
 54        <meta-data
-54-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:9-13:36
+54-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:9-13:36
 55            android:name="app_data_collection_default_enabled"
-55-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-63
+55-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-63
 56            android:value="true" />
-56-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-33
+56-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-33
 57
 58        <service
-58-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:19
+58-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:19
 59            android:name="com.google.firebase.components.ComponentDiscoveryService"
-59-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-84
+59-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-84
 60            android:directBootAware="true"
-60-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-43
+60-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-43
 61            android:exported="false" >
-61-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+61-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
 62            <meta-data
-62-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:85
+62-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:85
 63                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
-63-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-120
+63-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-120
 64                android:value="com.google.firebase.components.ComponentRegistrar" />
-64-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-82
+64-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-82
 65            <meta-data
 65-->[com.google.firebase:firebase-auth:21.2.0] /home/linux/.gradle/caches/transforms-3/c34a4f01b951a8d6ba4c86a20ac2b660/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:69:13-71:85
 66                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
@@ -125,39 +125,39 @@
 68        </service>
 69
 70        <provider
-70-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:9-29:38
+70-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:9-29:38
 71            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
-71-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-88
+71-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-88
 72            android:authorities="com.tagscanner.reactnativefirebaseappinitprovider"
-72-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-86
+72-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-86
 73            android:exported="false"
-73-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-37
+73-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-37
 74            android:initOrder="99" />
-74-->[:react-native-firebase_app] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-35
+74-->[:react-native-firebase_app] /home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-35
 75        <provider
-75-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:9-26:20
+75-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:9-26:20
 76            android:name="com.reactnative.ivpusic.imagepicker.IvpusicImagePickerFileProvider"
-76-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-94
+76-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-94
 77            android:authorities="com.tagscanner.provider"
-77-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-60
+77-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-60
 78            android:exported="false"
-78-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
+78-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
 79            android:grantUriPermissions="true" >
-79-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-47
+79-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-47
 80            <meta-data
-80-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:78
+80-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:78
 81                android:name="android.support.FILE_PROVIDER_PATHS"
-81-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-67
+81-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-67
 82                android:resource="@xml/ivpusic_imagepicker_provider_paths" />
-82-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:17-75
+82-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:17-75
 83        </provider>
 84
 85        <activity
-85-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-30:72
+85-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-30:72
 86            android:name="com.yalantis.ucrop.UCropActivity"
-86-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-60
+86-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-60
 87            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-87-->[:react-native-image-crop-picker] /home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-69
+87-->[:react-native-image-crop-picker] /home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-69
 88        <activity
 88-->[com.google.android.gms:play-services-auth:20.3.0] /home/linux/.gradle/caches/transforms-3/2c72d4c775f629c439aaa1d0c0739c8c/transformed/jetified-play-services-auth-20.3.0/AndroidManifest.xml:23:9-27:75
 89            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

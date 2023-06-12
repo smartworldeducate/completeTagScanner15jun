@@ -1,9 +1,9 @@
 <libraries>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-firebase_auth::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/90dd8d8ea88a4ed7ce495bdfd5bbd701/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/90dd8d8ea88a4ed7ce495bdfd5bbd701/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-firebase_auth::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/6f5bf5ac351592fc16205947e7028c0a/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/6f5bf5ac351592fc16205947e7028c0a/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-firebase_auth:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/90dd8d8ea88a4ed7ce495bdfd5bbd701/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/auth/android/build/.transforms/6f5bf5ac351592fc16205947e7028c0a/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -13,10 +13,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-firebase_app::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/61090b9c0e7a4d228ddefaa3baf1efdc/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/61090b9c0e7a4d228ddefaa3baf1efdc/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-firebase_app::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/7c99d8e06e3dfdfb1dbe0fc0d88905f1/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/7c99d8e06e3dfdfb1dbe0fc0d88905f1/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-firebase_app:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/61090b9c0e7a4d228ddefaa3baf1efdc/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/@react-native-firebase/app/android/build/.transforms/7c99d8e06e3dfdfb1dbe0fc0d88905f1/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -65,10 +65,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-community_datetimepicker::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/7e8fcdc593af7b18b4429b09e0a279f4/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/7e8fcdc593af7b18b4429b09e0a279f4/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-community_datetimepicker::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/6cb05f6da6225aaa9a27681f3f02d002/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/6cb05f6da6225aaa9a27681f3f02d002/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-community_datetimepicker:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/7e8fcdc593af7b18b4429b09e0a279f4/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/@react-native-community/datetimepicker/android/build/.transforms/6cb05f6da6225aaa9a27681f3f02d002/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -78,10 +78,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-google-signin_google-signin::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5f56cbb41d2ec838d4e557b45605c261/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5f56cbb41d2ec838d4e557b45605c261/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-google-signin_google-signin::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5acf90f191834187455851d564c21a17/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5acf90f191834187455851d564c21a17/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-google-signin_google-signin:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5f56cbb41d2ec838d4e557b45605c261/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/@react-native-google-signin/google-signin/android/build/.transforms/5acf90f191834187455851d564c21a17/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -91,10 +91,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-camera::generalRelease"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/.transforms/9dd92949c30acff369e334f3c7f11123/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/.transforms/9dd92949c30acff369e334f3c7f11123/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-camera::generalRelease"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/.transforms/83c215eacd57369b94e7d526c21fe76a/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/.transforms/83c215eacd57369b94e7d526c21fe76a/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-camera:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-camera/android/build/.transforms/9dd92949c30acff369e334f3c7f11123/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-camera/android/build/.transforms/83c215eacd57369b94e7d526c21fe76a/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -104,10 +104,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-gesture-handler::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/bf11d01b336d291faba581901c714530/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/bf11d01b336d291faba581901c714530/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-gesture-handler::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/42511c4cb95e1440f6ce99783b89ec8f/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/42511c4cb95e1440f6ce99783b89ec8f/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-gesture-handler:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/bf11d01b336d291faba581901c714530/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-gesture-handler/android/build/.transforms/42511c4cb95e1440f6ce99783b89ec8f/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -117,10 +117,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-image-crop-picker::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/6778a636638963d23c351fd44b908da6/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/6778a636638963d23c351fd44b908da6/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-image-crop-picker::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/5d8548af172077e5e74b2bf6503a9c52/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/5d8548af172077e5e74b2bf6503a9c52/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-image-crop-picker:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/6778a636638963d23c351fd44b908da6/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-image-crop-picker/android/build/.transforms/5d8548af172077e5e74b2bf6503a9c52/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -130,10 +130,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-permissions::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-permissions/android/build/.transforms/7bbbc42683e5aed24d67dcea8c77a281/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-permissions/android/build/.transforms/7bbbc42683e5aed24d67dcea8c77a281/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-permissions::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-permissions/android/build/.transforms/73a2729f93f0e9f0ec61349f6c7d7dce/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-permissions/android/build/.transforms/73a2729f93f0e9f0ec61349f6c7d7dce/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-permissions:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-permissions/android/build/.transforms/7bbbc42683e5aed24d67dcea8c77a281/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-permissions/android/build/.transforms/73a2729f93f0e9f0ec61349f6c7d7dce/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -143,10 +143,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-reanimated::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/865d28a5d638274aef0121fdbf878389/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/865d28a5d638274aef0121fdbf878389/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-reanimated::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/edf4dcd728d1934a06e2de84893ef790/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/edf4dcd728d1934a06e2de84893ef790/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-reanimated:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/865d28a5d638274aef0121fdbf878389/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-reanimated/android/build/.transforms/edf4dcd728d1934a06e2de84893ef790/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -156,10 +156,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-safe-area-context::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/bb23c8921f71559fe662007252686fdf/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/bb23c8921f71559fe662007252686fdf/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-safe-area-context::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/3d8fafb343350ddb98e6793b358d440a/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/3d8fafb343350ddb98e6793b358d440a/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-safe-area-context:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/bb23c8921f71559fe662007252686fdf/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-safe-area-context/android/build/.transforms/3d8fafb343350ddb98e6793b358d440a/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -169,10 +169,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-screens::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-screens/android/build/.transforms/ca7b6d9111380bace5928f62be3b4ea6/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-screens/android/build/.transforms/ca7b6d9111380bace5928f62be3b4ea6/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-screens::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-screens/android/build/.transforms/66b73a9acec597871e23dcda46009659/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-screens/android/build/.transforms/66b73a9acec597871e23dcda46009659/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-screens:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-screens/android/build/.transforms/ca7b6d9111380bace5928f62be3b4ea6/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-screens/android/build/.transforms/66b73a9acec597871e23dcda46009659/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -182,10 +182,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-svg::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-svg/android/build/.transforms/95f2714ef2c8c716e5cb2752e0100787/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-svg/android/build/.transforms/95f2714ef2c8c716e5cb2752e0100787/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-svg::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-svg/android/build/.transforms/e5248862a43324e57698248264a7114b/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-svg/android/build/.transforms/e5248862a43324e57698248264a7114b/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-svg:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-svg/android/build/.transforms/95f2714ef2c8c716e5cb2752e0100787/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-svg/android/build/.transforms/e5248862a43324e57698248264a7114b/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -195,10 +195,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/home/linux/Downloads/ReactnativeProject/TagScanner/android@@:react-native-vector-icons::release"
-      jars="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/2b4121a53379cbd0f702304d4ee25dc8/transformed/out/jars/classes.jar:/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/2b4121a53379cbd0f702304d4ee25dc8/transformed/out/jars/libs/R.jar"
+      name="/home/linux/Documents/TagScanner/android@@:react-native-vector-icons::release"
+      jars="/home/linux/Documents/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/efa504f5d1618924f51324b48a8fe505/transformed/out/jars/classes.jar:/home/linux/Documents/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/efa504f5d1618924f51324b48a8fe505/transformed/out/jars/libs/R.jar"
       resolved="TagScanner:react-native-vector-icons:unspecified"
-      folder="/home/linux/Downloads/ReactnativeProject/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/2b4121a53379cbd0f702304d4ee25dc8/transformed/out"
+      folder="/home/linux/Documents/TagScanner/node_modules/react-native-vector-icons/android/build/.transforms/efa504f5d1618924f51324b48a8fe505/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

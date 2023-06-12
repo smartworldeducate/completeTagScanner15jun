@@ -1,6 +1,6 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import { tagSingleService } from "./singletagService";
-export const getSingleTag=createAsyncThunk("tag/getalltags",async(userData,thunkAPI)=>{
+export const getSingleTag=createAsyncThunk("tag/getsingletag",async(userData,thunkAPI)=>{
     try {
         return await tagSingleService.getSingleTags(userData)
     } catch (error) {

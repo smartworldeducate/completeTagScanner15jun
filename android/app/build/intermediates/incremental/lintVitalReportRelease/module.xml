@@ -1,6 +1,6 @@
 <lint-module
     format="1"
-    dir="/home/linux/Downloads/ReactnativeProject/TagScanner/android/app"
+    dir="/home/linux/Documents/TagScanner/android/app"
     name=":app"
     type="APP"
     maven="TagScanner:app:"

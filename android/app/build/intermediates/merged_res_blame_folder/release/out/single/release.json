@@ -32,6 +32,10 @@
         "source": "com.tagscanner.app-main-39:/drawable/forward.jpeg"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_bell.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_bell.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "com.tagscanner.app-main-39:/mipmap-xxxhdpi/ic_launcher.png"
     },
@@ -176,6 +180,10 @@
         "source": "com.tagscanner.app-main-39:/drawable/group.png"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_star.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_star.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_empty.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/empty.png"
     },
@@ -218,6 +226,10 @@
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
         "source": "com.tagscanner.app-react-33:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_heart.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_heart.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_qasim.png.flat",
@@ -356,12 +368,20 @@
         "source": "com.tagscanner.app-main-39:/drawable/menu.png"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstarselected.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstarselected.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_logoutgrey.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/logoutgrey.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_ticklightgreen.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/ticklightgreen.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstar.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstar.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_userselected.png.flat",
@@ -426,6 +446,10 @@
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_phone.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/phone.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_rocket.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeratings_dist_images_rocket.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_umar.png.flat",
