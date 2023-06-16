@@ -6,6 +6,7 @@ import singleTagReducer from '../features/tagsingle/singletagSlice'
 import catReducer from '../features/category/allCatSlice'
 import filterReducer from '../features/category/singleCatSlice'
 import scanReducer from '../features/scan/scanSlice'
+import LoginUserReducer from '../features/register/googleLoginSlice'
 export const store=configureStore({
     reducer:{
         register:authReducer,
@@ -14,6 +15,7 @@ export const store=configureStore({
         singleTag:singleTagReducer,
         getAllCats:catReducer,
         getCatFilter:filterReducer,
-        scanar:scanReducer
+        scanar:scanReducer,
+        userLogin:LoginUserReducer
        }
 })

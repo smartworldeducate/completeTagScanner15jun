@@ -1,5 +1,5 @@
 import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Event from 'react-native-vector-icons/MaterialCommunityIcons';
 import Session from 'react-native-vector-icons/Ionicons';
@@ -13,6 +13,31 @@ import { Image } from 'react-native';
 
 
 const CustomDrawer = ({navigation}) => {
+  const [user,setUser]=useState('')
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('userinfo')
+      if(value !== null) {
+        await setUser(value)
+        console.log("userbasync data",value)
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('userinfo', null)
+    } catch (e) {
+      // saving error
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
   
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -128,6 +153,22 @@ const CustomDrawer = ({navigation}) => {
        </View>
        <View style={{width:wp(50),height:hp(5),marginTop:wp(5)}}>
           <TouchableOpacity onPress={()=>{
+            navigation.navigate('FormTest')
+            navigation.closeDrawer();
+          }}>
+            <View style={{flexDirection:'row',marginLeft:hp(3)}}>
+              <View >
+              <Icon name='home' size={25} color='gray'/>
+              </View>
+              <View style={{marginLeft:hp(2),marginTop:hp(0.3)}}>
+                <Text style={{backgroundColor:"#fff",fontSize:hp(2),color:'#120D26'}}>WebForm</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+       </View>
+       <View style={{width:wp(50),height:hp(5),marginTop:wp(5)}}>
+          <TouchableOpacity onPress={()=>{
+            storeData({})
             navigation.navigate('Login')
             navigation.closeDrawer();
           }}>

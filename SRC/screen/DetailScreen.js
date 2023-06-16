@@ -129,15 +129,15 @@ const DetailScreen = props => {
 
       {animation && (<View >
         <Modal isVisible={animodal}>
-        <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1),justifyContent:'center',alignItems:'center' }}>
+        <View style={{ width: wp(30), height: hp(15), backgroundColor: '#EAFAF1', borderRadius: hp(2), justifyContent: 'center', alignItems: 'center',marginHorizontal:hp(15) }}>
 
 <View style={{}}>
     <ActivityIndicator animating={animation} size={'large'}/>
     
   </View>
-  <View style={{}}>
+  {/* <View style={{}}>
   <Text>please wait</Text>
-  </View>
+  </View> */}
 
 </View>
         </Modal>
@@ -203,11 +203,11 @@ const DetailScreen = props => {
                 </View>
                 <View style={{ marginLeft: hp(1.5), marginTop: hp(0.5) }}>
                   <View>
-                    <Text style={{ fontSize: hp(2), color: 'black' }}>Attendence-Only</Text>
+                    <Text style={{ fontSize: hp(2), color: 'black' }}>00:00</Text>
                   </View>
-                  {/* <View style={{ marginTop: hp(0.5) }}>
-                    <Text style={{ color: '#2C3E50' }}>{setup_id == 1 ? 'IN' : 'OUT'}  Time</Text>
-                  </View> */}
+                  <View style={{ marginTop: hp(0.5) }}>
+                    <Text style={{ color: '#2C3E50' }}> Time</Text>
+                  </View>
                 </View>
               </View>)}
               {e.scan_time !== null && (<View style={{ flexDirection: 'row', width: wp(45), marginLeft: hp(7) }}>
@@ -228,7 +228,7 @@ const DetailScreen = props => {
             </View>
 
             <View style={{ marginTop: hp(3), backgroundColor: "#5669FF", width: wp(100), height: hp(7), position: 'absolute', top: hp(90), left: 0, right: 0, bottom: 0, }}>
-              <TouchableOpacity onPress={handleQrcode} disabled={scan_time == null ? false :setup_id == 2 ? false:true} style={{ opacity: visibleBtn ? 0.5 : 1 }}>
+              <TouchableOpacity onPress={handleQrcode} disabled={scan_time == null ? false :setup_id == 2 ? true:false} style={{ opacity: visibleBtn ? 0.5 : 1 }}>
                 <View style={{ width: wp(80), height: hp(8), backgroundColor: '#5669FF', flexDirection: 'row', marginHorizontal: hp(4) }}>
                   <View style={{ width: wp(40), marginVertical: hp(2), marginLeft: hp(8) }}>
                     <Text style={{ color: 'white', fontSize: hp(2.5) }}>SCAN NOW</Text>

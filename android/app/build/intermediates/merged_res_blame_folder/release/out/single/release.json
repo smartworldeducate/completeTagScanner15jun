@@ -20,6 +20,10 @@
         "source": "com.tagscanner.app-main-39:/drawable/home.png"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_light_icons_close.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_light_icons_close.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_mainuser.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/mainuser.png"
     },
@@ -28,8 +32,16 @@
         "source": "com.tagscanner.app-main-39:/drawable/menublue.png"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_light_icons_tick.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_light_icons_tick.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_forward.jpeg.flat",
         "source": "com.tagscanner.app-main-39:/drawable/forward.jpeg"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_dark_icons_close.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_dark_icons_close.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeratings_dist_images_bell.png.flat",
@@ -118,6 +130,10 @@
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativeelementdropdown_src_assets_close.png.flat",
         "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativeelementdropdown_src_assets_close.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_dark_icons_arrowup.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_dark_icons_arrowup.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
@@ -352,12 +368,24 @@
         "source": "com.tagscanner.app-main-39:/drawable/uncheck.png"
     },
     {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_light_icons_arrowup.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_light_icons_arrowup.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_dark_icons_tick.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_dark_icons_tick.png"
+    },
+    {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_notificationsgrey.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/notificationsgrey.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_smy.png.flat",
         "source": "com.tagscanner.app-main-39:/drawable/smy.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_light_icons_arrowdown.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_light_icons_arrowdown.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_assesment.png.flat",
@@ -434,6 +462,10 @@
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
         "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backiconmask.png"
+    },
+    {
+        "merged": "com.tagscanner.app-merged_res-38:/drawable-mdpi_node_modules_reactnativedropdownpicker_src_themes_dark_icons_arrowdown.png.flat",
+        "source": "com.tagscanner.app-react-33:/drawable-mdpi/node_modules_reactnativedropdownpicker_src_themes_dark_icons_arrowdown.png"
     },
     {
         "merged": "com.tagscanner.app-merged_res-38:/drawable_checked.png.flat",

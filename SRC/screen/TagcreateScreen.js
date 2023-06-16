@@ -2,6 +2,8 @@ import { View, Text, StatusBar, TouchableOpacity, StyleSheet, TextInput, ScrollV
 import React, { useState } from 'react'
 import Check from 'react-native-vector-icons/AntDesign';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import DropDownPicker from 'react-native-dropdown-picker';
+
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -15,10 +17,15 @@ import Rite from 'react-native-vector-icons/AntDesign';
 import ImagePicker from 'react-native-image-crop-picker';
 import Modal from "react-native-modal";
 import { Button } from 'react-native-magnus';
-import { Dropdown } from 'react-native-element-dropdown';
 const TagcreateScreen = (props) => {
     //datetimepicker start
     const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+        { label: 'Admin', value: 'Y' },
+        { label: 'User', value: 'N' }
+    ]);
     const [endTimePickerVisible, setEndTimePickerVisibility] = useState(false);
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [stime, setStime] = useState('')
@@ -109,6 +116,7 @@ const TagcreateScreen = (props) => {
 
 
     const takePhotoFromCamera = () => {
+        setImage('');
         ImagePicker.openCamera({
             mediaType: 'photo',
             includeBase64: true,
@@ -124,6 +132,7 @@ const TagcreateScreen = (props) => {
         });
     }
     const takePhotoFromCamerab = () => {
+        setImageb('');
         ImagePicker.openCamera({
             mediaType: 'photo',
             includeBase64: true,
@@ -139,6 +148,7 @@ const TagcreateScreen = (props) => {
         });
     }
     const choosePhotoFromLibrary = () => {
+        setImage('');
         ImagePicker.openPicker({
             mediaType: 'photo',
             includeBase64: true,
@@ -149,6 +159,7 @@ const TagcreateScreen = (props) => {
         }).then(image => {
             setImgBase64(image.data)
             setImage(image.path);
+            setLogo(false)
             setModalVisible(false);
         });
     }
@@ -163,7 +174,8 @@ const TagcreateScreen = (props) => {
             compressImageQuality: 0.7
         }).then(imageb => {
             setImgBase64(imageb.data)
-            setImage(imageb.path);
+            setImageb(imageb.path);
+            setBanner(false)
             setModalVisibleb(false);
         });
     }
@@ -184,7 +196,7 @@ const TagcreateScreen = (props) => {
         setBanner(true)
     }
 
-   
+
     return (
         <>
             <StatusBar
@@ -194,24 +206,27 @@ const TagcreateScreen = (props) => {
             />
             {isModalVisible && (<View style={{ flex: 1 }}>
                 <Modal isVisible={isModalVisible}>
-                    <View style={{ width: wp(90), height: hp(44), backgroundColor: '#fff', borderRadius: hp(1) }}>
-
-                        <View style={{ width: wp(90), height: hp(25), flexDirection: 'row', justifyContent: 'space-evenly', marginTop: hp(15) }}>
-
-                            <View style={{ width: wp(40) }}>
-                                <Button onPress={takePhotoFromCamera} title="choose from camara" />
-                            </View>
-                            <View style={{ width: wp(40) }}>
-                                <Button onPress={choosePhotoFromLibrary} title="choose from gallary" />
-                            </View>
-
-                        </View>
+                    <View style={{ width: wp(90), height: hp(25), backgroundColor: '#fff', borderRadius: hp(1) }}>
 
 
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+                        <TouchableOpacity onPress={takePhotoFromCamera} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from camara</Text>
+                        </TouchableOpacity>
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
 
-                        <View style={{ width: wp(90), height: hp(15) }}>
-                            <Button title="Hide modal" onPress={toggleModal} />
-                        </View>
+                        <TouchableOpacity onPress={choosePhotoFromLibrary} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from gallary</Text>
+                        </TouchableOpacity>
+
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+
+
+
+
+                        <TouchableOpacity onPress={toggleModal} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>cancel</Text>
+                        </TouchableOpacity>
 
 
                     </View>
@@ -219,24 +234,27 @@ const TagcreateScreen = (props) => {
             </View>)}
             {isModalVisibleb && (<View style={{ flex: 1 }}>
                 <Modal isVisible={isModalVisibleb}>
-                    <View style={{ width: wp(90), height: hp(44), backgroundColor: '#fff', borderRadius: hp(1) }}>
-
-                        <View style={{ width: wp(90), height: hp(25), flexDirection: 'row', justifyContent: 'space-evenly', marginTop: hp(15) }}>
-
-                            <View style={{ width: wp(40) }}>
-                                <Button onPress={takePhotoFromCamerab} title="choose from camara" />
-                            </View>
-                            <View style={{ width: wp(40) }}>
-                                <Button onPress={choosePhotoFromLibraryb} title="choose from gallary" />
-                            </View>
-
-                        </View>
+                    <View style={{ width: wp(90), height: hp(25), backgroundColor: '#fff', borderRadius: hp(1) }}>
 
 
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+                        <TouchableOpacity onPress={takePhotoFromCamerab} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from camara</Text>
+                        </TouchableOpacity>
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
 
-                        <View style={{ width: wp(90), height: hp(15) }}>
-                            <Button title="Hide modal" onPress={toggleModalb} />
-                        </View>
+                        <TouchableOpacity onPress={choosePhotoFromLibraryb} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from gallary</Text>
+                        </TouchableOpacity>
+
+                        <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+
+
+
+
+                        <TouchableOpacity onPress={toggleModalb} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+                            <Text style={{ fontSize: hp(2), color: '#5669FF' }}>cancel</Text>
+                        </TouchableOpacity>
 
 
                     </View>
@@ -306,31 +324,26 @@ const TagcreateScreen = (props) => {
                     </View>
                 </View>
                 {tag && (<View>
-                    <View>
-                        <View style={{ width: wp(90), marginHorizontal: hp(2.5), marginBottom: hp(1), marginTop: hp(3) }}>
-                            <Dropdown
-                                style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-                                placeholderStyle={styles.placeholderStyle}
-                                selectedTextStyle={styles.selectedTextStyle}
-                                inputSearchStyle={styles.inputSearchStyle}
-                                iconStyle={styles.iconStyle}
-                                data={country}
-                                search
-                                maxHeight={300}
-                                labelField="label"
-                                valueField="value"
-                                placeholder={!isFocus ? 'Categories' : '...'}
-                                searchPlaceholder="Search..."
-                                value={countryData}
-                                onFocus={() => setIsFocus(true)}
-                                onBlur={() => setIsFocus(false)}
-                                onChange={(item, i) => {
-                                    setCountryData(item.label);
-                                    setIsFocus(false);
-                                }}
-                            />
-                        </View>
+
+                    <View style={{ width: wp(90), marginHorizontal: hp(2.5), marginBottom: hp(1), marginTop: hp(3), zIndex: 1 }}>
+                        <DropDownPicker
+                            placeholder='Admin/User'
+                            placeholderStyle={{ color: 'gray' }}
+                            style={{
+                                borderColor: '#E4DFDF',
+                                borderWidth: 1,
+                                borderRadius: hp(1.2),
+                                height: hp(7.5),
+                            }}
+                            open={open}
+                            value={value}
+                            items={items}
+                            setOpen={setOpen}
+                            setValue={setValue}
+                            setItems={setItems}
+                        />
                     </View>
+
                     <View>
                         <View
                             style={{

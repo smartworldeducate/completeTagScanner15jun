@@ -1,8 +1,8 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import { loginService } from "../register/loginService";
-export const loginUser=createAsyncThunk("auth/register",async(userData,thunkAPI)=>{
+export const loginUser=createAsyncThunk("auth/loginuser",async(userData,thunkAPI)=>{
     try {
-        return await loginService.login(userData)
+        return await loginService.googlelLogin(userData)
     } catch (error) {
        return thunkAPI.rejectWithValue(error) 
     }

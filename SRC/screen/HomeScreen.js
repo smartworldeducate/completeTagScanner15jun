@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, TouchableOpacity, ActivityIndicator, Image, RefreshControl } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity, ActivityIndicator, Image, RefreshControl, TextInput } from 'react-native';
 import Menu from 'react-native-vector-icons/AntDesign';
 import React, { useCallback, useEffect, useState } from 'react';
 // import Sop from 'react-native-vector-icons/Entypo';
@@ -52,23 +52,38 @@ const HomeScreen = props => {
     const catData = await dispatch(getAllCats())
     if (catData !== "") {
       await setCategory(catData.payload)
-      //  console.log("tagdata here",data.payload)
+      console.log("tagdata here", data.payload)
     }
   }
 
   const handleFilter = async (category_id) => {
     setAnimodal(true)
-    console.log("fsdgfdghfgjgfj", category_id)
-    const flData = await dispatch(filterCats(category_id))
+    // console.log("fsdgfdghfgjgfj", category_id)
+    const flData = await dispatch(filterCats({ user_id: category_id }))
     if (flData !== "") {
       setTagData(flData.payload)
-      console.log("filter  here", flData.payload)
+      // console.log("filter  here", flData.payload)
     }
     setInterval(() => {
       setAnimodal(false)
     }, 1000);
 
   }
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+
+    const filtered = tagData.filter((item) =>
+      item.tag_desc.toLowerCase().includes(query.toLowerCase())
+    );
+
+    setTagData(filtered);
+    if (searchQuery == '') {
+      handleTags()
+    }
+  };
   // console.log("tagdata here",tagData)
 
   useFocusEffect(
@@ -80,6 +95,7 @@ const HomeScreen = props => {
     handleTags()
     getAllCatHandle()
   }, [])
+
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -97,15 +113,15 @@ const HomeScreen = props => {
       />
       {animation && (<View >
         <Modal isVisible={animodal}>
-          <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1), justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ width: wp(30), height: hp(15), backgroundColor: '#EAFAF1', borderRadius: hp(2), justifyContent: 'center', alignItems: 'center',marginHorizontal:hp(15) }}>
 
             <View style={{}}>
               <ActivityIndicator animating={animation} size={'large'} />
 
             </View>
-            <View style={{}}>
+            {/* <View style={{}}>
               <Text>please wait</Text>
-            </View>
+            </View> */}
 
           </View>
         </Modal>
@@ -196,10 +212,8 @@ const HomeScreen = props => {
                     marginLeft: hp(1.5),
                     marginTop: hp(1),
                   }}></View>
-                <View style={{ marginTop: hp(1), marginLeft: hp(1) }}>
-                  <Text style={{ color: 'gray', fontSize: hp(2.5) }}>
-                    Search ....
-                  </Text>
+                <View style={{ marginLeft: hp(1), marginBottom: hp(1) }}>
+                  <TextInput placeholder='search by' placeholderTextColor="#fff" style={{ color: '#fff', fontSize: hp(2.5) }} value={searchQuery} onChangeText={handleSearch} />
                 </View>
               </View>
             </TouchableOpacity>
@@ -250,7 +264,7 @@ const HomeScreen = props => {
           }
           const { category_id, category_name } = e
           return (<View style={{ marginRight: hp(1) }} key={category_id}>
-            <TouchableOpacity onPress={() => handleFilter(category_id)}>
+            <TouchableOpacity onPress={() => category_name == 'All' ? handleTags() : handleFilter(category_id)}>
               <View style={{ height: hp(5), paddingHorizontal: hp(1.5), borderRadius: hp(5), backgroundColor: bgcolor[i], flexDirection: 'row' }}>
                 <View style={{ marginLeft: hp(1), marginVertical: hp(1.2) }}>
                   <Ball name={icon[i]} mr="sm" color="white" size={20} />
@@ -268,7 +282,7 @@ const HomeScreen = props => {
 
         {tagData?.map((e, i) => {
           // console.log(e.tag_logo)
-          const { tag_id, tag_desc, tag_logo, setup_name, scan_time, setup_id } = e
+          const { tag_id, tag_desc, tag_logo, setup_name, scan_time, setup_id, scan_time2 } = e
           return (<TouchableOpacity onPress={() => props.navigation.navigate('DetailScreen', e)} key={i}>
             <View
               style={{
@@ -279,6 +293,10 @@ const HomeScreen = props => {
                 marginBottom: hp(2),
                 backgroundColor: 'white',
                 borderRadius: hp(1.3),
+                shadowColor: '#000', 
+                shadowOpacity: 0.5,
+                shadowRadius: 4,   
+                elevation: 4
               }}>
               <View
                 style={{
@@ -296,30 +314,35 @@ const HomeScreen = props => {
               <View>
                 <View>
                   <Text
-                    style={{ color: '#120D26', fontSize: hp(2.5), fontWeight: '600', marginTop: hp(1.3), fontFamily: 'NunitoSans_7pt-Regular', fontStyle: 'normal' }}>
+                    style={{ color: '#120D26', fontSize: hp(2.5), fontWeight: '600', marginTop: hp(1), fontFamily: 'NunitoSans_7pt-Regular', fontStyle: 'normal' }}>
                     {tag_desc}
                   </Text>
                 </View>
+
+                {scan_time !== null && (<View style={{ flexDirection: 'row', marginTop: hp(0) }}>
+                  <View style={{ marginRight: hp(1) }}>
+                    <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
+                      TIME {setup_id == 1 ? 'IN ' : 'IN'} <Text style={{ color: '#5669FF' }}>{scan_time}</Text>
+                    </Text>
+                  </View>
+                  {scan_time2 !== null && (<View>
+                    <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}> |   TIME {setup_id == 2 ? 'OUT' : 'OUT'} <Text style={{ color: '#5669FF' }}>{scan_time2}</Text></Text>
+                  </View>)}
+                </View>)}
                 {scan_time == null && (<View style={{ flexDirection: 'row', marginTop: hp(0) }}>
                   <View style={{ marginRight: hp(1) }}>
                     <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
-                      Attendence-Only
+                      TIME IN <Text style={{ color: '#5669FF' }}> 00:00   |</Text>
                     </Text>
                   </View>
-
-                </View>)}
-                {scan_time && (<View style={{ flexDirection: 'row', marginTop: hp(0) }}>
-                  <View style={{ marginRight: hp(1) }}>
-                    <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
-                      TIME {setup_id == 1 ? 'IN' : 'OUT'} <Text style={{ color: '#5669FF' }}>{scan_time}</Text>
-                    </Text>
-                  </View>
-
+                  {scan_time2 == null && (<View>
+                    <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>TIME OUT <Text style={{ color: '#5669FF' }}>00:00</Text></Text>
+                  </View>)}
                 </View>)}
               </View>
               <View style={{ marginVertical: hp(2.5), marginHorizontal: hp(3) }}>
 
-                <Image style={{ width: wp(6), height: hp(3) }} source={{ uri: setup_id == 1 ? 'yelo' : 'listicon' }} resizeMode='cover' />
+                <Image style={{ width: wp(6), height: hp(3) }} source={{ uri: scan_time == null ? 'yelo' : 'listicon' }} resizeMode='cover' />
               </View>
             </View>
           </TouchableOpacity>)
@@ -341,6 +364,10 @@ const HomeScreen = props => {
                 marginBottom: hp(2),
                 backgroundColor: 'white',
                 borderRadius: hp(1.3),
+                shadowColor: '#000', 
+                shadowOpacity: 0.5,
+                shadowRadius: 4,   
+                elevation: 4
               }}>
               <View
                 style={{
@@ -358,17 +385,24 @@ const HomeScreen = props => {
               <View>
                 <View>
                   <Text
-                    style={{ color: '#120D26', fontSize: hp(2.5), fontWeight: '600', marginTop: hp(1.3), fontFamily: 'NunitoSans_7pt-Regular', fontStyle: 'normal' }}>
+                    style={{ color: '#120D26', fontSize: hp(2.5), fontWeight: '600', marginTop: hp(1), fontFamily: 'NunitoSans_7pt-Regular', fontStyle: 'normal' }}>
                     {tag_desc}
                   </Text>
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: hp(0) }}>
                   <View style={{ marginRight: hp(1) }}>
-                    {scan_time == null && (<Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
-                       <Text style={{ color: '#5669FF' }}>Attendence+-Only</Text>
-                    </Text>)}
-                   {scan_time !== null && ( <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
-                      TIME {setup_id == 1 ? 'IN' :'OUT'} <Text style={{ color: '#5669FF' }}>{scan_time}</Text>
+                    {scan_time == null && (<View style={{ flexDirection: 'row', marginTop: hp(0) }}>
+                      <View style={{ marginRight: hp(1) }}>
+                        <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
+                          TIME IN <Text style={{ color: '#5669FF' }}>00:00 |</Text>
+                        </Text>
+                      </View>
+                      <View>
+                        <Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>TIME OUT <Text style={{ color: '#5669FF' }}>00:00 </Text></Text>
+                      </View>
+                    </View>)}
+                    {scan_time !== null && (<Text style={{ color: '#807A7A', fontSize: hp(1.5), fontWeight: '600' }}>
+                      TIME {setup_id == 1 ? 'IN' : 'OUT'} <Text style={{ color: '#5669FF' }}>{scan_time}</Text>
                     </Text>)}
                   </View>
 
@@ -376,7 +410,7 @@ const HomeScreen = props => {
               </View>
               <View style={{ marginVertical: hp(2.5), marginHorizontal: hp(3) }}>
 
-                <Image style={{ width: wp(6), height: hp(3) }} source={{ uri: setup_name == 'in' ? 'yelo' : 'listicon' }} resizeMode='cover' />
+                <Image style={{ width: wp(6), height: hp(3) }} source={{ uri: scan_time == null ? 'yelo' : 'listicon' }} resizeMode='cover' />
               </View>
             </View>
           </TouchableOpacity>)

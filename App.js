@@ -21,6 +21,7 @@ import Users from './SRC/screen/Users';
 import UserDetail from './SRC/screen/UserDetail';
 import EditProfileScreen from './SRC/screen/EditProfileScreen';
 import Test from './SRC/screen/Test';
+import FormTest from './SRC/screen/FormTest';
 const Stack = createNativeStackNavigator()
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           <Stack.Screen name="UserDetail" component={UserDetail} options={{ headerShown: false }} />
           <Stack.Screen name="Profile" component={EditProfileScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Test" component={Test} options={{ headerShown: false }} />
+          <Stack.Screen name="FormTest" component={FormTest} options={{ headerShown: false }} />
 
         </Stack.Navigator>
 

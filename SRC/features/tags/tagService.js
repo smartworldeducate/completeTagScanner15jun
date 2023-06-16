@@ -12,7 +12,7 @@ const getAllTags=async(userData)=>{
      
 )
     if(response.data){
-        // console.log("tagservice data",response.data.data)
+        console.log("tagservice data",response.data.data)
         return response.data.data
     }
 }

@@ -16,6 +16,10 @@ import Aero from 'react-native-vector-icons/AntDesign';
 import { Toggle } from 'react-native-magnus';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin'
 import { loginUser } from '../features/register/loginSlice'
+import { loginUserHandle } from '../features/register/googleLoginSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Modal from "react-native-modal";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -29,34 +33,61 @@ const LoginScreen = (props) => {
   const [loaduiung, setLoding] = useState(false)
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState('')
- 
-  const handleLogin = async () => {
-   props.navigation.navigate("Home");
+  const [animodal, setAnimodal] = useState(false);
+  const [animation, setAnimation] = useState(true)
 
-    // if (email && password !== "") {
-    //   var login_data = await dispatch(loginUser({ email: email, password: password }))
-    //   setData(login_data?.payload?.message)
-    //   setLoding(true)
-    //   if (login_data?.payload?.success == 1) {
-    //     props.navigation.navigate("Home");
-    //     setLoding(false)
-    //   } else {
-    //     ToastAndroid.showWithGravity(  
-    //       login_data?.payload?.message,  
-    //       ToastAndroid.LONG,  
-    //       ToastAndroid.CENTER  
-    //     );  
-    //   }
-    // } else {
-    //   ToastAndroid.showWithGravity(  
-    //     "enter valid username and password",  
-    //     ToastAndroid.LONG,  
-    //     ToastAndroid.CENTER  
-    //   );  
-    // }
+  const handleLogin = async () => {
+    // props.navigation.navigate("Home");
+
+    if (email && password !== "") {
+      var login_data = await dispatch(loginUserHandle({ email: email, password: password }))
+      setData(login_data?.payload?.message)
+      setLoding(true)
+      if (login_data?.payload?.success == 1) {
+        props.navigation.navigate("Home");
+        setLoding(false)
+      } else {
+        ToastAndroid.showWithGravity(
+          login_data?.payload?.message,
+          ToastAndroid.LONG,
+          ToastAndroid.CENTER
+        );
+      }
+    } else {
+      ToastAndroid.showWithGravity(
+        "enter valid username and password",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
+    }
   };
 
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('userinfo', jsonValue)
+    } catch (e) {
+      // saving error
+    }
+  }
+
+  // const [user,setUser]=useState('')
+  // const getData = async () => {
+  //   try {
+  //     const value = await AsyncStorage.getItem('userinfo')
+  //     if(value !== null) {
+  //       await setUser(value)
+  //       props.navigation.navigate('Home')
+
+  //       console.log("userbasync data",value)
+  //     }
+  //   } catch(e) {
+  //     // error reading value
+  //   }
+  // }
+
   useEffect(() => {
+    // getData()
     GoogleSignin.configure({
       webClientId: '249159142983-3r1307q40tb9de7qctsm4ckk244etg9h.apps.googleusercontent.com',
     });
@@ -64,12 +95,16 @@ const LoginScreen = (props) => {
 
 
   const signinWithGoogle = async () => {
+    setAnimodal(true)
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      const { id,name,email,givenName } = userInfo?.user
       console.log(userInfo?.user)
-      // props.navigation.navigate('Home');
+      const { id, name, email, givenName, photo } = userInfo?.user
+      await storeData({ google_id: id, photo: photo })
+      const glData = await dispatch(loginUser({ email: email, google_id: id }))
+      glData.payload.data == true ? props.navigation.navigate('Home') : props.navigation.navigate('Register')
+      setAnimodal(false)
 
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -86,17 +121,27 @@ const LoginScreen = (props) => {
   return (
     <>
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
-        <StatusBar
+        {/* <StatusBar
           backgroundColor={'#fff'}
           barStyle="dark-content"
           hidden={false}
-        />
+        /> */}
 
-        {/* <View style={styles.container}>
-          <Container position="top" />
+        {animation && (<View >
+          <Modal isVisible={animodal}>
+            <View style={{ width: wp(30), height: hp(15), backgroundColor: '#EAFAF1', borderRadius: hp(2), justifyContent: 'center', alignItems: 'center',marginHorizontal:hp(15) }}>
 
-          
-        </View> */}
+              <View style={{}}>
+                <ActivityIndicator animating={animation} size={'large'} />
+
+              </View>
+              {/* <View style={{}}>
+                <Text>please wait</Text>
+              </View> */}
+
+            </View>
+          </Modal>
+        </View>)}
 
         <View style={{ width: wp(100), backgroundColor: '#fff' }}>
           <View style={{ width: wp(50), marginTop: hp(8) }}>
@@ -202,9 +247,14 @@ const LoginScreen = (props) => {
                 <Text style={{ color: '#120D26' }}>Forgot Password ?</Text>
               </TouchableOpacity>
             </View>
-            <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(3) }}>
+            <View style={{
+              width: wp(90), marginHorizontal: hp(6), marginTop: hp(3), shadowColor: '#000',
+              shadowOpacity: 0.5,
+              shadowRadius: 4,
+              elevation: 4
+            }}>
               <TouchableOpacity onPress={handleLogin}>
-                <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(1.5), borderWidth: 1, borderColor: 'white', backgroundColor: '#5669FF', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+                <View style={{ width: wp(75), height: hp(7.5), borderRadius: hp(1.5), borderWidth: 1, borderColor: 'white', backgroundColor: '#5669FF', flexDirection: 'row', justifyContent: 'space-evenly', shadowColor: '#2C3E50', shadowOpacity: 0.5, shadowRadius: 4, elevation: 4, }}>
                   <View style={{ width: wp(15), marginTop: hp(1.5) }}>
                     {loaduiung && (<ActivityIndicator size="large" color="#0000ff" animating={loaduiung} />)}
                   </View>
@@ -222,7 +272,7 @@ const LoginScreen = (props) => {
             <View style={{ width: wp(50), marginHorizontal: hp(25), marginTop: hp(3) }}>
               <Text>OR</Text>
             </View>
-            <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(3) }}>
+            <View style={{ width: wp(90), marginHorizontal: hp(6), marginTop: hp(3), shadowColor: '#2C3E50', shadowOpacity: 0.5, shadowRadius: 4, elevation: 4, }}>
               <TouchableOpacity onPress={() => signinWithGoogle().then(res => {
                 console.log("respo:", res)
               }).catch(error => {

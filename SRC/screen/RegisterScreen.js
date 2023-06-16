@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Dropdown } from 'react-native-element-dropdown';
+import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Build from 'react-native-vector-icons/FontAwesome';
 import User from 'react-native-vector-icons/AntDesign';
@@ -23,8 +23,8 @@ import Aero from 'react-native-vector-icons/AntDesign';
 import Camra from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-crop-picker';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
-// import { Formik } from 'formik';
-// import * as yup from 'yup'
+import RNFetchBlob from "rn-fetch-blob";
+const fs = RNFetchBlob.fs;
 import Toast from 'react-native-root-toast';
 import Modal from "react-native-modal";
 import {
@@ -39,63 +39,62 @@ const RegisterScreen = (props) => {
   const message = useSelector((state) => state.register)
   console.log(message)
   const [isModalVisible, setModalVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: 'Admin', value: 'Y' },
+    { label: 'User', value: 'N' }
+  ]);
+  console.log("dropdown value",value)
   const [animodal, setAnimodal] = useState(false);
-  const [success,setSuccess]=useState(false)
+  const [success, setSuccess] = useState(false)
   const [comp, setComp] = useState('')
   const [full_name, setFname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmpass, setConfirmpass] = useState('')
-  const [visible, setVisible] = useState(false)
   const [show, setShow] = useState(true)
   const [image, setImage] = useState('');
   const [imgBase64, setImgBase64] = useState(null);
-  const [countryData, setCountryData] = useState(null);
-  const [status, setStatus] = useState('')
-  const [isFocus, setIsFocus] = useState(false);
-  const [animation,setAnimation]=useState(true)
-  const [country, setCountry] = useState([
-    { label: 'Admin', value: 'Y' },
-    { label: 'User', value: 'N' },
-  ]);
+  const [animation, setAnimation] = useState(true)
+  const [gData, setGdata] = useState('')
+  
 
   const handleRwegister = () => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    if(status == ""){
-      ToastAndroid.showWithGravity(  
-        "select user is required",  
-        ToastAndroid.LONG,  
-        ToastAndroid.CENTER  
-      );  
+    if (value == "") {
+      ToastAndroid.showWithGravity(
+        "select user is required",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
     }
-    else if(full_name == ""){
-      ToastAndroid.showWithGravity(  
-        "name is required",  
-        ToastAndroid.LONG,  
-        ToastAndroid.CENTER  
-      );  
+    else if (gData.name == "") {
+      ToastAndroid.showWithGravity(
+        "name is required",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
     }
-    else if(reg.test(email) === false){
-      ToastAndroid.showWithGravity(  
-        "email is not correct",  
-        ToastAndroid.LONG,  
-        ToastAndroid.CENTER  
-      );  
+    else if (reg.test(gData.email) === false) {
+      ToastAndroid.showWithGravity(
+        "email is not correct",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
     }
-    else if(password !== confirmpass){
-      ToastAndroid.showWithGravity(  
-        "Passwoad and confirm password should be same",  
-        ToastAndroid.LONG,  
-        ToastAndroid.CENTER  
-      );  
+    else if (password !== confirmpass) {
+      ToastAndroid.showWithGravity(
+        "Passwoad and confirm password should be same",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
     }
-    else if (status && full_name && email && password && imgBase64 != " ") {
+    else if (value && gData.name && gData.email && password != " ") {
       setAnimodal(true)
-      dispatch(registerUser({ user_type: status, full_name: full_name, email: email, password: password, photo: imgBase64, comp_name: comp }))
-      setImage('')
-      setComp('')
-      setFname('')
-      setEmail('')
+      dispatch(registerUser({ user_type: value, full_name: gData.name, email: gData.email, password: password, photo: imgBase64, comp_name: comp, google_id: gData.id }))
+      setGdata('')
+      setImgBase64(null)
       setPassword('')
       setConfirmpass('')
       setShow(true)
@@ -103,16 +102,16 @@ const RegisterScreen = (props) => {
       setSuccess(message?.isSuccess)
       setInterval(() => {
         setSuccess(false)
-      },5000);
+      }, 5000);
       props.navigation.navigate("Login")
 
-     
+
     } else {
-      ToastAndroid.showWithGravity(  
-        "All Fields are  required",  
-        ToastAndroid.LONG,  
-        ToastAndroid.CENTER  
-      );  
+      ToastAndroid.showWithGravity(
+        "All Fields are  required",
+        ToastAndroid.LONG,
+        ToastAndroid.CENTER
+      );
     }
   };
 
@@ -131,7 +130,7 @@ const RegisterScreen = (props) => {
     }).then((image) => {
       setImage(image.path);
       setImgBase64(image.data)
-      
+
     });
   }
 
@@ -146,11 +145,11 @@ const RegisterScreen = (props) => {
       cropping: true,
       compressImageQuality: 0.7
     }).then(image => {
-      console.log("library image",image.data)
+      console.log("library image", image.data)
       setImgBase64(image.data)
       setImage(image.path);
-      
-      
+
+
     });
   }
 
@@ -165,12 +164,32 @@ const RegisterScreen = (props) => {
     });
   }, [])
   const signinWithGoogle = async () => {
+    setImage('')
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      const { id } = userInfo?.user
-      console.log(id)
-      // props.navigation.navigate('Home');
+      const { user } = userInfo
+      setImage(user.photo)
+      await setGdata(user)
+      let imagePath = null;
+      await RNFetchBlob.config({
+        fileCache: true
+      })
+        .fetch("GET", user.photo)
+        // the image is now dowloaded to device's storage
+        .then(resp => {
+          // the image path you can use it directly with Image component
+          imagePath = resp.path();
+          return resp.readFile("base64");
+        })
+        .then(base64Data => {
+          // here's base64 encoded image
+          console.log(base64Data);
+          setImgBase64(base64Data)
+          // remove the file from storage
+          return fs.unlink(imagePath);
+        });
+
 
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -193,15 +212,15 @@ const RegisterScreen = (props) => {
         barStyle="dark-content"
         hidden={false}
       />
-     
-       {success && (<View style={{ flex: 1 }}>
+
+      {success && (<View style={{ flex: 1 }}>
         <Modal isVisible={success}>
           <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1) }}>
-            <View style={{width:wp(15),height:hp(7.5),backgroundColor:'#82E0AA',borderRadius:hp(50),marginHorizontal:hp(18),marginTop:hp(2.5)}}>
-              <Okey style={{marginHorizontal:hp(0.5),marginVertical:hp(0.5)}} name='check' size={50} color='#1D8348'/>
+            <View style={{ width: wp(15), height: hp(7.5), backgroundColor: '#82E0AA', borderRadius: hp(50), marginHorizontal: hp(18), marginTop: hp(2.5) }}>
+              <Okey style={{ marginHorizontal: hp(0.5), marginVertical: hp(0.5) }} name='check' size={50} color='#1D8348' />
             </View>
-            <View style={{marginTop:hp(2),marginHorizontal:hp(7),width:wp(80)}}>
-              <Text style={{fontSize:hp(2.5),color:'#82E0AA'}}>user register successfully</Text>
+            <View style={{ marginTop: hp(2), marginHorizontal: hp(7), width: wp(80) }}>
+              <Text style={{ fontSize: hp(2.5), color: '#82E0AA' }}>user register successfully</Text>
             </View>
 
           </View>
@@ -209,10 +228,10 @@ const RegisterScreen = (props) => {
       </View>)}
       {animation && (<View style={{ flex: 1 }}>
         <Modal isVisible={animodal}>
-          <View style={{ width: wp(90), height: hp(20), backgroundColor: '#EAFAF1', borderRadius: hp(1) }}>
+          <View style={{width: wp(30), height: hp(15), backgroundColor: '#EAFAF1', borderRadius: hp(2), justifyContent: 'center', alignItems: 'center',marginHorizontal:hp(15) }}>
 
-            <View style={{marginTop:hp(8)}}>
-              <ActivityIndicator animating={animation} size={'large'}/>
+            <View style={{ marginTop: hp(8) }}>
+              <ActivityIndicator animating={animation} size={'large'} />
             </View>
 
           </View>
@@ -220,26 +239,26 @@ const RegisterScreen = (props) => {
       </View>)}
       {isModalVisible && (<View style={{ flex: 1 }}>
         <Modal isVisible={isModalVisible}>
-          <View style={{ width: wp(90), height: hp(25), backgroundColor: '#fff', borderRadius: hp(1)}}>
-
-            
-              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
-              <TouchableOpacity onPress={takePhotoFromCamera}  style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center'}}>
-                <Text style={{fontSize:hp(2),color:'#5669FF'}}>choose from camara</Text>
-              </TouchableOpacity>
-              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
-
-              <TouchableOpacity onPress={choosePhotoFromLibrary} style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center' }}>
-                <Text style={{fontSize:hp(2),color:'#5669FF'}}>choose from gallary</Text>
-              </TouchableOpacity>
-
-              <View style={{width:wp(80),height:1,borderRadius:50,backgroundColor:'#5669FF',marginHorizontal:hp(2.5),marginVertical:hp(1)}}></View>
+          <View style={{ width: wp(90), height: hp(25), backgroundColor: '#fff', borderRadius: hp(1) }}>
 
 
+            <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+            <TouchableOpacity onPress={takePhotoFromCamera} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+              <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from camara</Text>
+            </TouchableOpacity>
+            <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
+
+            <TouchableOpacity onPress={choosePhotoFromLibrary} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+              <Text style={{ fontSize: hp(2), color: '#5669FF' }}>choose from gallary</Text>
+            </TouchableOpacity>
+
+            <View style={{ width: wp(80), height: 1, borderRadius: 50, backgroundColor: '#5669FF', marginHorizontal: hp(2.5), marginVertical: hp(1) }}></View>
 
 
-            <TouchableOpacity onPress={toggleModal} style={{ width: wp(90),marginVertical:hp(1.5),alignItems:'center'}}>
-              <Text style={{fontSize:hp(2),color:'#5669FF'}}>cancel</Text>
+
+
+            <TouchableOpacity onPress={toggleModal} style={{ width: wp(90), marginVertical: hp(1.5), alignItems: 'center' }}>
+              <Text style={{ fontSize: hp(2), color: '#5669FF' }}>cancel</Text>
             </TouchableOpacity>
 
 
@@ -257,7 +276,7 @@ const RegisterScreen = (props) => {
         </TouchableOpacity>
       </View>
       <ScrollView>
-        {image && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
+        {!image && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
 
           <View style={{ width: wp(90), position: 'relative', marginHorizontal: hp(16), marginTop: hp(3), marginBottom: hp(2) }}>
             <TouchableOpacity onPress={toggleModal} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(2.5), left: hp(11), zIndex: 1 }}>
@@ -270,12 +289,12 @@ const RegisterScreen = (props) => {
             </TouchableOpacity>
             <Image
               style={{ width: wp(25), height: hp(12), marginHorizontal: hp(2), marginTop: hp(2), borderRadius: hp(50) }}
-              source={{ uri: image }} resizeMode='cover' />
+              source={{ uri: 'group' }} resizeMode='cover' />
           </View>
 
 
         </View>)}
-        {show && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
+        {image && (<View style={{ width: wp(100), backgroundColor: '#fff' }}>
 
           <View style={{ width: wp(90), position: 'relative', marginHorizontal: hp(16), marginTop: hp(3), marginBottom: hp(2) }}>
             <TouchableOpacity onPress={toggleModal} style={{ width: wp(8), height: hp(4), borderRadius: hp(50), position: 'absolute', top: hp(1), left: hp(11), zIndex: 1 }}>
@@ -287,43 +306,33 @@ const RegisterScreen = (props) => {
               />
             </TouchableOpacity>
             <Image
-              style={{ width: wp(25), height: hp(12.5), marginHorizontal: hp(2), marginTop: hp(2) }}
-              source={{ uri: 'group' }} resizeMode='cover' />
+              style={{ width: wp(25), height: hp(12.5), marginHorizontal: hp(2), marginTop: hp(2), borderRadius: hp(50) }}
+              source={{ uri: image }} resizeMode='cover' />
           </View>
 
 
         </View>)}
-
-
-
         <View
           style={{ width: wp(100), height: hp(100), backgroundColor: '#fff' }}>
 
-          <View style={{ marginTop: hp(1) }}>
 
-            <View style={{ width: wp(90), marginHorizontal: hp(2.6), marginBottom: hp(2) }}>
-              <Dropdown
-                style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-                placeholderStyle={{ color: '#807A7A' }}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle={styles.iconStyle}
-                data={country}
-                name="user_type"
-                search
-                maxHeight={300}
-                labelField="label"
-                valueField="value"
-                placeholder={!isFocus ? 'Admin/User  ' : '...'}
-                searchPlaceholder="Search..."
-                value={countryData}
-                onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
-                onChange={(item, i) => {
-                  setCountryData(item.label);
-                  setStatus(item.value)
-                  setIsFocus(false);
-                }}
+          <View style={{ marginTop: hp(1) }}>
+            <View style={{ width: wp(90), marginHorizontal: hp(2.6), marginBottom: hp(2), zIndex: 1 }}>
+              <DropDownPicker
+              placeholder='Admin/User'
+              placeholderStyle={{color:'gray'}}
+              style={{
+                borderColor: '#E4DFDF',
+                borderWidth: 1,
+                borderRadius: hp(1.2),
+                height: hp(7.5),
+              }}
+                open={open}
+                value={value}
+                items={items}
+                setOpen={setOpen}
+                setValue={setValue}
+                setItems={setItems}
               />
             </View>
 
@@ -391,7 +400,7 @@ const RegisterScreen = (props) => {
                     style={styles.input}
                     name="full_name"
                     placeholder="Full Name"
-                    value={full_name}
+                    value={gData.name}
                     onChangeText={((e) => setFname(e))}
 
                     underlineColorAndroid="transparent"
@@ -430,8 +439,8 @@ const RegisterScreen = (props) => {
                     style={styles.input}
                     name="email"
                     placeholder="Email"
-                    value={email}
-                    onChangeText={(e)=>setEmail(e)}
+                    value={gData.email}
+                    onChangeText={(e) => setEmail(e)}
                     underlineColorAndroid="transparent"
                   />
                 </View>
@@ -548,7 +557,7 @@ const RegisterScreen = (props) => {
                 </View>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={()=>props.navigation.navigate('Login')} style={{ width: wp(90), marginHorizontal: hp(11.5), marginTop: hp(2), marginBottom: hp(5) }}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Login')} style={{ width: wp(90), marginHorizontal: hp(11.5), marginTop: hp(2), marginBottom: hp(5) }}>
               <Text style={{ color: 'black' }}>Already Have an Account ? <Text style={{ color: '#5669FF' }}>Sign In</Text></Text>
             </TouchableOpacity>
 

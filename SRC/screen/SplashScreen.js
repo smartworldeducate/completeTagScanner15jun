@@ -1,13 +1,29 @@
 import {View, ImageBackground, StatusBar, Text, Image} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { StackActions} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
 const SplashScreen = props => {
+  const [user,setUser]=useState('')
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('userinfo')
+      if(value !== null) {
+        await setUser(value)
+        console.log("userbasync data",value)
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  
   useEffect(() => {
+    getData()
     setTimeout(async () => {
       props.navigation.dispatch(StackActions.replace('Drawer'))
     }, 3000);
